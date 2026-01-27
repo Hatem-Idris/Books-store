@@ -14,7 +14,7 @@ export default function Register() {
         console.log(res.data);
         return true;
       } catch (error) {
-        console.log(error);
+        console.log(error.response.data);
         return false;
       }
   };
@@ -22,7 +22,7 @@ export default function Register() {
     first_name: Yup.string().required(),
     last_name: Yup.string().required(),
     email: Yup.string().email().required(),
-    password: Yup.string().required(),
+    password: Yup.string().required().min(8, "Password must be at least 8 characters"),
     password_confirmation: Yup.string()
       .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Required"),
