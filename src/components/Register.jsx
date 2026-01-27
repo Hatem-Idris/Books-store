@@ -59,7 +59,7 @@ export default function Register() {
                   name="first_name"
                   type="text"
                   id="firstname"
-                  placeholder="John"
+                  placeholder="Johnh"
                   className="rounded-lg border border-black/20 p-4 bg-white"
                 ></Field>
                 <ErrorMessage
