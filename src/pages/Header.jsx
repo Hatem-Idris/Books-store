@@ -20,7 +20,7 @@ export default function Header() {
                     </li>
                 </ul>
             </nav>
-            <nav className="flex gap-2.5">
+            <nav className="flex gap-2.5 md:p-2 lg:p-0">
             <Link to="/"><button className="py-3 px-4 bg-[#D9176C] text-white font-sans rounded-lg cursor-pointer">Log in</button></Link>
             <Link to="/Register"> <button className="py-3 px-4 bg-white text-[#D9176C] font-sans rounded-lg cursor-pointer">Sign Up</button></Link>
             </nav>

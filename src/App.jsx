@@ -1,14 +1,14 @@
 import { BrowserRouter } from "react-router-dom";
 import Approuter from "./routes/Approuter";
 import Header from "./pages/Header";
-import Headermdsm from "./pages/Headermdsm";
+import Headersm from "./pages/Headersm";
 
 export default function App() {
   return (
       <>
       <BrowserRouter>
       <Header/>
-      <Headermdsm/>
+      <Headersm/>
       <Approuter/>
       </BrowserRouter>
       </>

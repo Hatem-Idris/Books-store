@@ -25,7 +25,7 @@ export default function Loginform() {
       <p className="font-semibold textarea-lg font-sans text-[#D9176C] mt-20">
         Welcome Back!
       </p>
-      <div className="w-full p-2 md:w-4/12">
+      <div className="w-full p-2 md:w-6/12 lg:w-4/12">
         <Formik
           validationSchema={loginscheme}
           initialValues={{ email: "", password: "" }}
