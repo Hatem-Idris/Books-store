@@ -2,7 +2,7 @@ import { MdOutlineBook } from "react-icons/md";
 import { Link} from "react-router-dom";
 export default function Header() {
   return (
-    <div className="bg-white/20 fixed w-full py-6">
+    <div className="bg-white/20 fixed w-full py-6 hidden md:flex">
         <header className="w-full flex container mx-auto justify-between">
             <nav className="flex items-center gap-6 text-white font-[600]">
                 <MdOutlineBook className="text-2xl" />
