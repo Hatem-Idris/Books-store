@@ -1,9 +1,10 @@
 import { Form, Field, Formik, ErrorMessage } from "formik";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
-import gimg from "../assets/Google__G__logo.svg.png"
-import fimg from "../assets/Facebook_Logo_(2019).png"
+import gimg from "../assets/Google__G__logo.svg.png";
+import fimg from "../assets/Facebook_Logo_(2019).png";
+import toast from "react-hot-toast";
 export default function Loginform() {
   let domain = "https://bookstore.eraasoft.pro/api";
   const handlogin = async (values) => {
@@ -11,8 +12,10 @@ export default function Loginform() {
     let url = domain + endpoint;
     try {
       const res = await axios.post(url, values);
+      toast.success(res.data.message);
       console.log(res.data);
     } catch (error) {
+      // toast.error(error.data);
       console.log(error);
     }
   };
@@ -88,17 +91,11 @@ export default function Loginform() {
             <p className="text-[#00000080] self-center">or</p>
             <div className="flex flex-col gap-2">
               <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2 shadow-[0_1px_3px_0_rgba(97,97,97,0.05),0_5px_5px_0_rgba(97,97,97,0.05)]">
-                <img
-                  className="w-5 h-5"
-                  src={gimg}
-                ></img>
+                <img className="w-5 h-5" src={gimg}></img>
                 Login with Google
               </button>
               <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2 shadow-[0_1px_3px_0_rgba(97,97,97,0.05),0_5px_5px_0_rgba(97,97,97,0.05)]">
-                <img
-                  className="w-5 h-5"
-                  src={fimg}
-                ></img>
+                <img className="w-5 h-5" src={fimg}></img>
                 Login with Facebook
               </button>
             </div>

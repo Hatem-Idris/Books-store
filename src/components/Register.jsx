@@ -3,28 +3,31 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 import { useState } from "react";
-import gimg from "../assets/Google__G__logo.svg.png"
-import fimg from "../assets/Facebook_Logo_(2019).png"
+import gimg from "../assets/Google__G__logo.svg.png";
+import fimg from "../assets/Facebook_Logo_(2019).png";
 export default function Register() {
   const navigate = useNavigate();
   let domain = "https://bookstore.eraasoft.pro/api";
   const handleregister = async (values) => {
     let endpoint = "/register";
     let url = domain + endpoint;
-      try {
-        const res = await axios.post(url,values);
-        console.log(res.data);
-        return true;
-      } catch (error) {
-        console.log(error.response.data);
-        return false;
-      }
+    try {
+      const res = await axios.post(url, values);
+      toast.success(res.data.message);
+      console.log(res.data);
+      return true;
+    } catch (error) {
+      console.log(error.data);
+      return false;
+    }
   };
   const registerscheme = Yup.object({
     first_name: Yup.string().required(),
     last_name: Yup.string().required(),
     email: Yup.string().email().required(),
-    password: Yup.string().required().min(8, "Password must be at least 8 characters"),
+    password: Yup.string()
+      .required()
+      .min(8, "Password must be at least 8 characters"),
     password_confirmation: Yup.string()
       .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Required"),
@@ -40,7 +43,7 @@ export default function Register() {
             last_name: "",
             email: "",
             password: "",
-            password_confirmation:"",
+            password_confirmation: "",
           }}
           onSubmit={async (values) => {
             if (!checked) {
@@ -102,51 +105,50 @@ export default function Register() {
               />
             </div>
             <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-2 text-[18px] font-medium">
-              <label htmlFor="password">Password</label>
-              <Field
-                name="password"
-                type="password"
-                id="password"
-                placeholder="Enter password"
-                className="rounded-lg border border-black/20 p-4 bg-white"
-              ></Field>
-              <ErrorMessage
-                name="password"
-                component={"p"}
-                className="text-red-500 font-medium py-2"
-              />
-            </div>
-            <div className="flex flex-col gap-2 text-[18px] font-medium">
-              <label htmlFor="confirm">Confirm passowrd</label>
-              <Field
-                name="password_confirmation"
-                type="password"
-                id="confirm"
-                placeholder="Enter password"
-                className="rounded-lg border border-black/20 p-4 bg-white"
-              ></Field>
-              <ErrorMessage
-                name="password_confirmation"
-                component={"p"}
-                className="text-red-500 font-medium py-2"
-              />
-              <div className="flex gap-2 items-center mt-2">
-                <input
-                  className="w-4 h-4"
-                  type="checkbox"
-                  checked={checked}
-                  onChange={(e) => setChecked(e.target.checked)}
-                ></input>
-                <span>
-                  Agree with
-                  <span className="text-[#D9176C] ml-0.5">
-                    Terms & Conditions
-                  </span>
-                </span>
+              <div className="flex flex-col gap-2 text-[18px] font-medium">
+                <label htmlFor="password">Password</label>
+                <Field
+                  name="password"
+                  type="password"
+                  id="password"
+                  placeholder="Enter password"
+                  className="rounded-lg border border-black/20 p-4 bg-white"
+                ></Field>
+                <ErrorMessage
+                  name="password"
+                  component={"p"}
+                  className="text-red-500 font-medium py-2"
+                />
               </div>
-            </div>
-
+              <div className="flex flex-col gap-2 text-[18px] font-medium">
+                <label htmlFor="confirm">Confirm passowrd</label>
+                <Field
+                  name="password_confirmation"
+                  type="password"
+                  id="confirm"
+                  placeholder="Enter password"
+                  className="rounded-lg border border-black/20 p-4 bg-white"
+                ></Field>
+                <ErrorMessage
+                  name="password_confirmation"
+                  component={"p"}
+                  className="text-red-500 font-medium py-2"
+                />
+                <div className="flex gap-2 items-center mt-2">
+                  <input
+                    className="w-4 h-4"
+                    type="checkbox"
+                    checked={checked}
+                    onChange={(e) => setChecked(e.target.checked)}
+                  ></input>
+                  <span>
+                    Agree with
+                    <span className="text-[#D9176C] ml-0.5">
+                      Terms & Conditions
+                    </span>
+                  </span>
+                </div>
+              </div>
             </div>
             <button
               type="submit"
@@ -163,17 +165,11 @@ export default function Register() {
             <p className="text-[#00000080] self-center">or</p>
             <div className="flex flex-col gap-2">
               <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2 shadow-[0_1px_3px_0_rgba(97,97,97,0.05),0_5px_5px_0_rgba(97,97,97,0.05)]">
-                <img
-                  className="w-5 h-5"
-                  src={gimg}
-                ></img>
+                <img className="w-5 h-5" src={gimg}></img>
                 Login with Google
               </button>
               <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2 shadow-[0_1px_3px_0_rgba(97,97,97,0.05),0_5px_5px_0_rgba(97,97,97,0.05)]">
-                <img
-                  className="w-5 h-5"
-                  src={fimg}
-                ></img>
+                <img className="w-5 h-5" src={fimg}></img>
                 Login with Facebook
               </button>
             </div>
