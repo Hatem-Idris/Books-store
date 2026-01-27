@@ -30,7 +30,7 @@ export default function Loginform() {
       <div className="w-full p-2 md:w-6/12 lg:w-4/12">
         <Formik
           validationSchema={loginscheme}
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ email: "", password: "" , rememberMe:false }}
           onSubmit={(values) => {
             handlogin(values);
           }}
@@ -68,8 +68,8 @@ export default function Loginform() {
             </div>
             <div className="flex items-center justify-between">
               <div className="flex gap-2 items-center">
-                <input className="w-4 h-4" type="checkbox"></input>
-                <span>Remember me</span>
+                <Field name="rememberMe" className="w-4 h-4" type="checkbox" id="rememberme"></Field>
+                <label htmlFor="rememberme">Remember me</label>
               </div>
               <p className="text-[16px] font-[400] font-sans text-[#D9176C]">
                 Forget password?
