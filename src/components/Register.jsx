@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 import { useState } from "react";
+import gimg from "../assets/Google__G__logo.svg.png"
+import fimg from "../assets/Facebook_Logo_(2019).png"
 export default function Register() {
   const navigate = useNavigate();
   let domain = "https://bookstore.eraasoft.pro/api";
@@ -163,16 +165,16 @@ export default function Register() {
               <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2">
                 <img
                   className="w-5 h-5"
-                  src="../../public/Google__G__logo.svg.png"
+                  src={gimg}
                 ></img>
                 Login with Google
               </button>
               <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2">
                 <img
                   className="w-5 h-5"
-                  src="../../public/Facebook_Logo_(2019).png"
+                  src={fimg}
                 ></img>
-                Login with Google
+                Login with Facebook
               </button>
             </div>
           </Form>
