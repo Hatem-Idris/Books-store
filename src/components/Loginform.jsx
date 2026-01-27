@@ -77,7 +77,7 @@ export default function Loginform() {
             </div>
             <button
               type="submit"
-              className="w-full py-3 px-4 rounded-xl bg-[#D9176C] text-white"
+              className="w-full py-3 px-4 rounded-xl bg-[#D9176C] text-white cursor-pointer"
             >
               Log in
             </button>
@@ -89,11 +89,11 @@ export default function Loginform() {
             </div>
             <p className="text-[#00000080] self-center">or</p>
             <div className="flex flex-col gap-2">
-              <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2 shadow-[0_1px_3px_0_rgba(97,97,97,0.05),0_5px_5px_0_rgba(97,97,97,0.05)]">
+              <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2 cursor-pointer shadow-[0_1px_3px_0_rgba(97,97,97,0.05),0_5px_5px_0_rgba(97,97,97,0.05)]">
                 <img className="w-5 h-5" src={gimg}></img>
                 Login with Google
               </button>
-              <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2 shadow-[0_1px_3px_0_rgba(97,97,97,0.05),0_5px_5px_0_rgba(97,97,97,0.05)]">
+              <button className="w-full py-3 px-4 rounded-xl bg-white text-black flex justify-center items-center gap-2 cursor-pointer shadow-[0_1px_3px_0_rgba(97,97,97,0.05),0_5px_5px_0_rgba(97,97,97,0.05)]">
                 <img className="w-5 h-5" src={fimg}></img>
                 Login with Facebook
               </button>
