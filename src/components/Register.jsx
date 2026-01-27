@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Register() {
   const navigate = useNavigate();
   let domain = "https://bookstore.eraasoft.pro/api";
-  const handlogin = async (values) => {
+  const handleregister = async (values) => {
     let endpoint = "/register";
     let url = domain + endpoint;
       try {
@@ -44,7 +44,7 @@ export default function Register() {
               alert("Please confirm on agreement first");
               return;
             }
-            const success = await handlogin(values);
+            const success = await handleregister(values);
             if (success) {
               navigate("/");
             }
