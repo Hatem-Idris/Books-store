@@ -1,4 +1,5 @@
 import { MdOutlineBook } from "react-icons/md";
+import { Link} from "react-router-dom";
 export default function Header() {
   return (
     <div className="bg-white/20 fixed w-full py-6">
@@ -20,8 +21,8 @@ export default function Header() {
                 </ul>
             </nav>
             <nav className="flex gap-2.5">
-                <button className="py-3 px-4 bg-[#D9176C] text-white font-sans rounded-lg">Log in</button>
-                <button className="py-3 px-4 bg-white text-[#D9176C] font-sans rounded-lg">Sign Up</button>
+            <Link to="/"><button className="py-3 px-4 bg-[#D9176C] text-white font-sans rounded-lg cursor-pointer">Log in</button></Link>
+            <Link to="/Register"> <button className="py-3 px-4 bg-white text-[#D9176C] font-sans rounded-lg cursor-pointer">Sign Up</button></Link>
             </nav>
         </header>
     </div>
