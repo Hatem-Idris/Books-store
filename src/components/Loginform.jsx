@@ -15,7 +15,6 @@ export default function Loginform() {
       toast.success(res.data.message);
       console.log(res.data);
     } catch (error) {
-      // toast.error(error.data);
       console.log(error);
     }
   };

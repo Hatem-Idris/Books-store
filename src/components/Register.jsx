@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import gimg from "../assets/Google__G__logo.svg.png";
 import fimg from "../assets/Facebook_Logo_(2019).png";
 export default function Register() {
