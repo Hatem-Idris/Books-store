@@ -30,7 +30,7 @@ export default function Register() {
   const [checked, setChecked] = useState(false);
   return (
     <div className="flex flex-col justify-center items-center gap-10 bg-[#F5F5F5]">
-      <div className="w-4/12">
+      <div className="w-full p-2 lg:w-6/12 xl:4/12">
         <Formik
           validationSchema={registerscheme}
           initialValues={{
@@ -52,8 +52,8 @@ export default function Register() {
           }}
         >
           <Form className="flex flex-col gap-10 font-medium text-black w-full">
-            <div className="flex gap-6 mt-20">
-              <div className="flex w-6/12 flex-col gap-2 text-[18px] font-medium">
+            <div className="flex flex-col md:flex-row gap-2 xl:gap-6 mt-20">
+              <div className="flex w-full md:w-6/12 flex-col gap-2 text-[18px] font-medium">
                 <label htmlFor="firstname">First name</label>
                 <Field
                   name="first_name"
@@ -68,7 +68,7 @@ export default function Register() {
                   className="text-red-500 font-medium py-2"
                 />
               </div>
-              <div className="flex w-6/12 flex-col gap-2 text-[18px] font-medium">
+              <div className="flex w-full md:w-6/12 flex-col gap-2 text-[18px] font-medium">
                 <label htmlFor="lastname">Last name</label>
                 <Field
                   name="last_name"
@@ -99,6 +99,7 @@ export default function Register() {
                 className="text-red-500 font-medium py-2"
               />
             </div>
+            <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2 text-[18px] font-medium">
               <label htmlFor="password">Password</label>
               <Field
@@ -142,6 +143,8 @@ export default function Register() {
                   </span>
                 </span>
               </div>
+            </div>
+
             </div>
             <button
               type="submit"
