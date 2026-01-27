@@ -10,7 +10,7 @@ export default function Register() {
     let endpoint = "/register";
     let url = domain + endpoint;
       try {
-        const res = await axios.post(url, values);
+        const res = await axios.post(url,values);
         console.log(res.data);
         return true;
       } catch (error) {
@@ -23,7 +23,7 @@ export default function Register() {
     last_name: Yup.string().required(),
     email: Yup.string().email().required(),
     password: Yup.string().required(),
-    confirm: Yup.string()
+    password_confirmation: Yup.string()
       .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Required"),
   });
@@ -38,6 +38,7 @@ export default function Register() {
             last_name: "",
             email: "",
             password: "",
+            password_confirmation:"",
           }}
           onSubmit={async (values) => {
             if (!checked) {
@@ -116,14 +117,14 @@ export default function Register() {
             <div className="flex flex-col gap-2 text-[18px] font-medium">
               <label htmlFor="confirm">Confirm passowrd</label>
               <Field
-                name="confirm"
+                name="password_confirmation"
                 type="password"
                 id="confirm"
                 placeholder="Enter password"
                 className="rounded-lg border border-black/20 p-4 bg-white"
               ></Field>
               <ErrorMessage
-                name="confirm"
+                name="password_confirmation"
                 component={"p"}
                 className="text-red-500 font-medium py-2"
               />
@@ -146,7 +147,7 @@ export default function Register() {
               type="submit"
               className="w-full py-3 px-4 rounded-xl bg-[#D9176C] text-white"
             >
-              Log in
+              Register
             </button>
             <div className="flex gap-1 text-[16px] font-[400] justify-center">
               <p>Already have an account?</p>
