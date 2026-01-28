@@ -15,9 +15,9 @@ export default function Headermdsm() {
         </div>
         <nav className="hidden md:flex items-center gap-6 text-white font-[600]">
           <ul className="flex gap-10">
-                <Link to="/" className="cursor-pointer hover:text-[#EAA451]">Home</Link>
+                <Link to="/">Home</Link>
                 <li>Books</li>
-                <Link to="/About" className="cursor-pointer hover:text-[#EAA451]">About us</Link>
+                <Link to="/About">About us</Link>
           </ul>
         </nav>
         <div className="hidden md:flex gap-2.5">

@@ -17,7 +17,7 @@ export default function Contactsection() {
     backgroundRepeat: "no-repeat",
   };
   return (
-    <div style={contactstyle} className="flex container mx-auto py-10 md:py-20 px-3 md:px-10 lg:px-20 h-[70vh]">
+    <div style={contactstyle} className="flex container mx-auto py-10 md:py-20 px-3 md:px-10 lg:px-20">
       <div className="w-full flex flex-col md:flex-row justify-between">
         <div className="w-full md:w-7/12 flex flex-col justify-between">
           <div className="flex flex-col">

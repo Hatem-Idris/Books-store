@@ -1,4 +1,5 @@
-import book from "../../assets/Homepageimgs/03e6a888f25ecc86e317e35c9f91c8c30c64b35e.jpg";
+import RichDadAndPoorDad from "../../assets/Homepageimgs/93e9747c9160601f7f3a7a57420103fe4025b18a.png";
+import TheDesignOfBooks from "../../assets/Homepageimgs/28aba63bdc086aa49f1169be9ff5208128b5a8af.jpg";
 import { IoMdStar } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
@@ -13,13 +14,13 @@ export default function Recomendedsection() {
       <h2 className="font-bold text-[23px] md:text-[26px] text-black">Recomended For You</h2>
       <div className="flex flex-col xl:flex-row gap-5">
       <div className="w-full flex flex-col md:flex-row xl:w-6/12 flex p-5 gap-9 bg-white">
-        <img className="w-full md:w-4/12" style={recomendedImageStyle} src={book} alt="" />
+        <img className="w-full md:w-4/12" style={recomendedImageStyle} src={RichDadAndPoorDad} alt="" />
         <div className="flex flex-col gap-3">
           <div className="flex flex-col">
             <h3 className="font-bold text-[18px] text-black">Rich Dad And Poor Dad</h3>
             <div className="flex gap-1 text-black">
               <p>Author:</p>
-              <span className="font-medium textarea-md text-black">Robert T. Kiyosanki</span>
+              <span className="font-medium textarea-md text-black pt-0.5">Robert T. Kiyosanki</span>
             </div>
           </div>
           <p className="textarea-md text-black/50">
@@ -58,13 +59,13 @@ export default function Recomendedsection() {
         </div>
       </div>
       <div className="w-full flex flex-col md:flex-row xl:w-6/12 flex p-5 gap-9 bg-white">
-        <img className="w-full md:w-4/12" style={recomendedImageStyle} src={book} alt="" />
+        <img className="w-full md:w-4/12" style={recomendedImageStyle} src={TheDesignOfBooks} alt="" />
         <div className="flex flex-col gap-3">
           <div className="flex flex-col">
-            <h3 className="font-bold text-[18px] text-black">Rich Dad And Poor Dad</h3>
+            <h3 className="font-bold text-[18px] text-black">The Design Of Books</h3>
             <div className="flex gap-1">
               <p className="text-black">Author:</p>
-              <span className="font-medium textarea-md text-black">Robert T. Kiyosanki</span>
+              <span className="font-medium textarea-md text-black pt-0.5">Debbie Berne</span>
             </div>
           </div>
           <p className="textarea-md text-black/50">
@@ -80,14 +81,14 @@ export default function Recomendedsection() {
                 <IoMdStar className="text-[#EBC305] text-xl" />
                 <IoMdStar className="text-[#EBC305] text-xl" />
                 <IoMdStar className="text-black/20 text-xl" />
-                <span className="text-black">(180 Review)</span>
+                <span className="text-black">(210 Review)</span>
               </div>
               <div className="flex gap-1 text-black">
                 <p>Rate:</p>
                 <span className="font-[600] textarea-md text-black">4.2</span>
               </div>
             </div>
-            <h2 className="text-2xl font-[600] text-black">$30.00</h2>
+            <h2 className="text-2xl font-[600] text-black">$40.00</h2>
           </div>
           <div className="flex gap-2 md:gap-0 justify-between">
             <button className="w-10/12 bg-[#D9176C] text-white flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px]">
