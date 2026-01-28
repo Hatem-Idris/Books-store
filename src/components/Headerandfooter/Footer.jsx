@@ -8,21 +8,21 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="w-full bg-[#3B2F4A]">
-      <div className="container mx-auto py-20 md:px-5 flex flex-col gap-8 text-white">
+      <div className="container mx-auto py-20 px-3 md:px-5 flex flex-col gap-8 text-white">
         <div className="flex justify-between">
           <nav className="flex font-[600]">
             <div className="flex gap-6">
               <MdOutlineBook className="text-2xl" />
               <span>Bookshop</span>
               <span className="text-white/30">|</span>
-              <ul className="flex gap-10">
+              <ul className="flex flex-col md:flex-row gap-10">
                 <Link to="/" className="cursor-pointer hover:text-[#EAA451] transition-all">Home</Link>
                 <li>Books</li>
                 <Link to="/About" className="cursor-pointer hover:text-[#EAA451] transition-all">About us</Link>
               </ul>
             </div>
           </nav>
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <FaFacebook className="w-[24px] h-[24px]" />
             <FaInstagram className="w-[24px] h-[24px]" />
             <PiYoutubeLogo className="w-[24px] h-[24px]" />

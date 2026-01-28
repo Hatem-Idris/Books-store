@@ -16,10 +16,10 @@ export default function Recomendedsection() {
         <img className="w-full md:w-4/12" style={recomendedImageStyle} src={book} alt="" />
         <div className="flex flex-col gap-3">
           <div className="flex flex-col">
-            <h3 className="font-bold text-[18px]">Rich Dad And Poor Dad</h3>
-            <div className="flex gap-1">
+            <h3 className="font-bold text-[18px] text-black">Rich Dad And Poor Dad</h3>
+            <div className="flex gap-1 text-black">
               <p>Author:</p>
-              <span className="font-medium textarea-md">Robert T. Kiyosanki</span>
+              <span className="font-medium textarea-md text-black">Robert T. Kiyosanki</span>
             </div>
           </div>
           <p className="textarea-md text-black/50">
@@ -35,14 +35,14 @@ export default function Recomendedsection() {
                 <IoMdStar className="text-[#EBC305] text-xl" />
                 <IoMdStar className="text-[#EBC305] text-xl" />
                 <IoMdStar className="text-black/20 text-xl" />
-                <span>(180 Review)</span>
+                <span className="text-black">(180 Review)</span>
               </div>
               <div className="flex gap-1">
-                <p>Rate:</p>
-                <span className="font-[600] textarea-md">4.2</span>
+                <p className="text-black">Rate:</p>
+                <span className="font-[600] textarea-md text-black">4.2</span>
               </div>
             </div>
-            <h2 className="text-2xl font-[600]">$30.00</h2>
+            <h2 className="text-2xl font-[600] text-black">$30.00</h2>
           </div>
           <div className="flex gap-2 md:gap-0 justify-between">
             <button className="w-10/12 bg-[#D9176C] text-white flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px]">
@@ -61,10 +61,10 @@ export default function Recomendedsection() {
         <img className="w-full md:w-4/12" style={recomendedImageStyle} src={book} alt="" />
         <div className="flex flex-col gap-3">
           <div className="flex flex-col">
-            <h3 className="font-bold text-[18px]">Rich Dad And Poor Dad</h3>
+            <h3 className="font-bold text-[18px] text-black">Rich Dad And Poor Dad</h3>
             <div className="flex gap-1">
-              <p>Author:</p>
-              <span className="font-medium textarea-md">Robert T. Kiyosanki</span>
+              <p className="text-black">Author:</p>
+              <span className="font-medium textarea-md text-black">Robert T. Kiyosanki</span>
             </div>
           </div>
           <p className="textarea-md text-black/50">
@@ -80,14 +80,14 @@ export default function Recomendedsection() {
                 <IoMdStar className="text-[#EBC305] text-xl" />
                 <IoMdStar className="text-[#EBC305] text-xl" />
                 <IoMdStar className="text-black/20 text-xl" />
-                <span>(180 Review)</span>
+                <span className="text-black">(180 Review)</span>
               </div>
-              <div className="flex gap-1">
+              <div className="flex gap-1 text-black">
                 <p>Rate:</p>
-                <span className="font-[600] textarea-md">4.2</span>
+                <span className="font-[600] textarea-md text-black">4.2</span>
               </div>
             </div>
-            <h2 className="text-2xl font-[600]">$30.00</h2>
+            <h2 className="text-2xl font-[600] text-black">$30.00</h2>
           </div>
           <div className="flex gap-2 md:gap-0 justify-between">
             <button className="w-10/12 bg-[#D9176C] text-white flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px]">

@@ -31,16 +31,16 @@ export default function Contactsection() {
               malesuada leo.
             </p>
           </div>
-          <div className="flex flex-col items-center gap-5">
+          <form className="flex flex-col items-center gap-5">
             <div className="w-full flex justify-between">
               <input
-                className="border rounded-[8px] border-white/20 p-4 w-[49%]"
+                className="border rounded-[8px] border-white/20 p-4 w-[49%] placeholder:text-gray-300 text-white"
                 type="text"
                 placeholder="Name"
               />
               <input
-                className="border rounded-[8px] border-white/20 p-4 w-[49%]"
-                type="text"
+                className="border rounded-[8px] border-white/20 p-4 w-[49%] placeholder:text-gray-300 text-white"
+                type="email"
                 placeholder="Email Address"
               />
             </div>
@@ -56,7 +56,7 @@ export default function Contactsection() {
     px-4
     py-3
     text-white
-    placeholder-white/50
+    placeholder:text-gray-300
     resize-none
     focus:outline-none
     focus:border-white/40
@@ -66,7 +66,7 @@ export default function Contactsection() {
             <button className="w-5/12 lg:w-3/12 bg-[#D9176C] text-white flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px]">
               Add to cart
             </button>
-          </div>
+          </form>
         </div>
         <div className="w-full md:w-4/12 flex flex-col gap-5">
           <div className="flex items-center gap-4">
