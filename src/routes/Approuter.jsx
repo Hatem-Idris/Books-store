@@ -7,9 +7,9 @@ export default function Approuter() {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Loginpage/>} />
+        <Route path='/Login' element={<Loginpage/>} />
         <Route path='/Register' element={<Registerpage/>} />
-        <Route path='/Home' element={<Homepage/>} />
+        <Route path='/' element={<Homepage/>} />
         <Route path='/About' element={<Aboutpage/>} />
       </Routes>
     </div>
