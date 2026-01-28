@@ -1,5 +1,5 @@
-import Heroimg from '../components/Heroimg'
-import Loginform from '../components/Loginform'
+import Heroimg from '../components/User/Heroimg'
+import Loginform from '../components/User/Loginform'
 export default function Loginpage() {
   return (
     <div>
