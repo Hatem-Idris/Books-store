@@ -29,7 +29,7 @@ export default function Headermdsm() {
           </ul>
 
           <div className="flex flex-col gap-3 px-6 pb-6">
-            <Link to="/">
+            <Link to="/Login">
               <button className="w-full py-3 bg-[#D9176C] text-white rounded-lg">
                 Log in
               </button>
