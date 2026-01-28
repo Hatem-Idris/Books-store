@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { MdOutlineBook } from "react-icons/md";
 import { HiMenu, HiX } from "react-icons/hi";
-import { Link } from "react-router-dom";
 
 export default function Headermdsm() {
   const [open, setOpen] = useState(false);
@@ -13,25 +13,6 @@ export default function Headermdsm() {
           <MdOutlineBook className="text-2xl" />
           <span>Bookshop</span>
         </div>
-        <nav className="hidden md:flex items-center gap-6 text-white font-[600]">
-          <ul className="flex gap-10">
-                <Link to="/">Home</Link>
-                <li>Books</li>
-                <Link to="/About">About us</Link>
-          </ul>
-        </nav>
-        <div className="hidden md:flex gap-2.5">
-          <Link to="/">
-            <button className="py-3 px-4 bg-[#D9176C] text-white rounded-lg">
-              Log in
-            </button>
-          </Link>
-          <Link to="/Register">
-            <button className="py-3 px-4 bg-white text-[#D9176C] rounded-lg">
-              Sign Up
-            </button>
-          </Link>
-        </div>
         <button
           className="md:hidden text-white text-3xl"
           onClick={() => setOpen(!open)}
@@ -42,9 +23,9 @@ export default function Headermdsm() {
       {open && (
         <div className="md:hidden bg-white/20 backdrop-blur-xs shadow-lg mt-3 animate__animated animate__fadeIn">
           <ul className="flex flex-col gap-6 text-center py-6 font-semibold text-white">
-            <li className="cursor-pointer">Home</li>
-            <li className="cursor-pointer">Books</li>
-            <li className="cursor-pointer">About Us</li>
+            <Link to="/">Home</Link>
+            <li>Books</li>
+            <Link to="/About">About us</Link>
           </ul>
 
           <div className="flex flex-col gap-3 px-6 pb-6">
