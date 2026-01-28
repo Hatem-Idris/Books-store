@@ -17,14 +17,14 @@ export default function Contactsection() {
     backgroundRepeat: "no-repeat",
   };
   return (
-    <div style={contactstyle} className="flex container mx-auto py-20 px-3 md:px-10 lg:px-20 h-[70vh]">
+    <div style={contactstyle} className="flex container mx-auto py-10 md:py-20 px-3 md:px-10 lg:px-20 h-[70vh]">
       <div className="w-full flex flex-col md:flex-row justify-between">
-        <div className="w-7/12 flex flex-col justify-between">
+        <div className="w-full md:w-7/12 flex flex-col justify-between">
           <div className="flex flex-col">
-            <h2 className="font-bold text-[40px] text-white">
+            <h2 className="font-bold text-3xl md:text-[40px] text-white">
               Have a Questions?
             </h2>
-            <h3 className="text-[40px] font-bold text-white">Get in Touch</h3>
+            <h3 className="text-3xl md:text-[40px] font-bold text-white">Get in Touch</h3>
             <p className="w-10/12 text-[18px] mt-2 text-white/50">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
               ultricies est. Aliquam in justo varius, sagittis neque ut,
@@ -68,7 +68,7 @@ export default function Contactsection() {
             </button>
           </div>
         </div>
-        <div className="w-4/12 flex flex-col gap-5">
+        <div className="w-full md:w-4/12 flex flex-col gap-5">
           <div className="flex items-center gap-4">
             <div className="border-2 flex justify-center items-center rounded-[8px] border-white/20 w-12 h-12 bg-white">
               <BiPhoneCall className="w-5 h-5 text-[#D9176C]" />
@@ -82,7 +82,7 @@ export default function Contactsection() {
             <p className="text-white text-[16px]">Example@gmail.com</p>
           </div>
           <div className="flex items-center gap-4">
-            <div className="border-2 flex justify-center items-center rounded-[8px] border-white/20 w-6/12 h-2/3 lg:w-4/12 xl:w-12 lg:h-12 bg-white">
+            <div className="border-2 flex justify-center items-center rounded-[8px] border-white/20 w-2/7 h-6/6 md:h-4/6 md:w-6/12 lg:w-4/12 xl:w-12 lg:h-12 bg-white">
               <FiMapPin className="w-5 h-5 text-[#D9176C]" />
             </div>
             <p className="text-white text-[16px]">
