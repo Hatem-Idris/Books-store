@@ -86,7 +86,6 @@ const BookCard = ({ book }) => {
 
   return (
     <div className="bg-[#3B2F4A] rounded-2xl p-4 flex flex-col sm:flex-row gap-4 h-full">
-      {/* Book Image */}
       <div className="flex-shrink-0 flex justify-center sm:items-center md:items-stretch">
         <img
           src={book.image || "/placeholder.svg"}
@@ -95,7 +94,6 @@ const BookCard = ({ book }) => {
         />
       </div>
 
-      {/* Book Details */}
       <div className="flex flex-col justify-between flex-1">
         <div>
           <h3 className="text-white font-semibold text-base sm:text-lg leading-tight line-clamp-2">
@@ -105,7 +103,6 @@ const BookCard = ({ book }) => {
             Author: <span className="text-gray-300">{book.author}</span>
           </p>
 
-          {/* Rating */}
           <div className="flex items-center gap-2 mt-2 flex-wrap">
             <StarRating rating={book.rating} />
             <span className="text-white/50">({book.reviews} Review)</span>
@@ -115,7 +112,6 @@ const BookCard = ({ book }) => {
             Rate: <span className="text-white font-medium">{book.rating}</span>
           </p>
 
-          {/* Price */}
           <div className="flex items-center gap-2 mt-2">
             <span className="text-gray-500 text-sm">
               ${book.originalPrice.toFixed(2)}
@@ -126,7 +122,6 @@ const BookCard = ({ book }) => {
           </div>
         </div>
 
-        {/* Stock Bar */}
         <div className="mt-3">
           <div className="w-full bg-gray-700 rounded-full h-2">
             <div
@@ -139,7 +134,6 @@ const BookCard = ({ book }) => {
           </p>
         </div>
 
-        {/* Cart Button */}
         <button className="self-end mt-2 bg-pink-500 hover:bg-pink-600 text-white p-3 rounded-xl transition-colors cursor-pointer">
           <svg
             className="w-5 h-5"
@@ -239,7 +233,7 @@ export const BooksCarousel = () => {
               {books.map((book) => (
                 <div
                   key={book.id}
-                  className="flex-shrink-0 px-2"
+                  className="flex-shrink-0 px-0 md:px-2"
                   style={{ width: `${slideWidth}%` }}
                 >
                   <BookCard book={book} />
