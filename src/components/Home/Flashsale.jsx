@@ -12,7 +12,7 @@ export default function Flashsale() {
           leo.
         </p>
         </div>
-        <Timer initialHours={0} initialMinutes={30} initialSeconds={0} className="md:w-6/12"/>
+        <Timer initialHours={30} initialMinutes={0} initialSeconds={0} className="md:w-6/12"/>
       </div>
       <Flashsalecards/>
     </div>

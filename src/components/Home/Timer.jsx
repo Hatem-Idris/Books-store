@@ -130,7 +130,7 @@ export default function CircularTimer({
               color: "#1a1a1a",
             }}
           >
-            {minutes}:{seconds}
+            {hours}:{minutes}:{seconds}
           </span>
         </div>
       </div>
