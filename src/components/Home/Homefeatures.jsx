@@ -4,7 +4,7 @@ import { RiRefund2Line } from "react-icons/ri";
 import { RiCustomerService2Line } from "react-icons/ri";
 export default function Homefeatures() {
   return (
-    <div className="container mx-auto w-full my-20">
+    <div className="container mx-auto w-full my-20 text-black">
       <div className="flex flex-wrap justify-between gap-4 p-3 ">
         <div className="w-full md:w-[calc(50%-0.5rem)] lg:w-[calc(24%-0.75rem)] flex flex-col p-2 gap-2">
           <LiaShippingFastSolid  className="text-3xl" />
