@@ -1,4 +1,5 @@
 import Timer from "../Home/Timer";
+import Flashsalecards from "../Home/Flashsalecards";
 export default function Flashsale() {
   return (
     <div className="container mx-auto py-20">
@@ -11,12 +12,9 @@ export default function Flashsale() {
           leo.
         </p>
         </div>
-        <Timer initialHours={30} initialMinutes={0} initialSeconds={0} className="md:w-6/12"/>
+        <Timer initialHours={0} initialMinutes={30} initialSeconds={0} className="md:w-6/12"/>
       </div>
-      <div className="flex flex-wrap gap-4 p-3 justify-center ">
-        <div className="w-full md:w-4/12 h-60 bg-[#3B2F4A]"></div>
-        <div className="w-full md:w-4/12 h-60 bg-[#3B2F4A]"></div>
-      </div>
+      <Flashsalecards/>
     </div>
   );
 }
