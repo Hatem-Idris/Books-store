@@ -35,8 +35,8 @@ export default function Ourmission() {
             key={el.id}
             className="w-full md:w-4/12 lg:w-3/12 flex flex-col border border-black/20 bg-white gap-6 p-6 rounded-xl"
           >
-            <h2 className="font-bold text-2xl">{el.title}</h2>
-            <p className="text-[16px]">{el.description}</p>
+            <h2 className="font-bold text-2xl text-black">{el.title}</h2>
+            <p className="text-[16px] text-black">{el.description}</p>
             <div className="flex gap-2 items-center text-[#D9176C]">
               {el.isSoon ? (
                 <p>Soon</p>
