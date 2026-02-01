@@ -13,7 +13,7 @@ export default function Homebestsellers() {
     borderRadius: "12px",
   };
   return (
-    <div className="bg-[#3B2F4A] h-[80vh] flex flex-col justify-center items-center">
+    <div className="bg-[#3B2F4A] py-20 flex flex-col justify-center items-center">
       <div className="container mx-auto w-full flex justify-center">
         <div className="flex flex-col text-center gap-2 w-full md:w-6/12 lg:w-6/12 xl:w-4/12">
           <h2 className="font-bold font-sans text-[26px] text-white">
