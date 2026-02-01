@@ -4,7 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 import { PiYoutubeLogo } from "react-icons/pi";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaEarthAmericas } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="w-full bg-[#3B2F4A]">
@@ -16,9 +16,32 @@ export default function Footer() {
               <span>Bookshop</span>
               <span className="text-white/30">|</span>
               <ul className="flex flex-col md:flex-row gap-10">
-                <Link to="/" className="cursor-pointer hover:text-[#EAA451] transition-all">Home</Link>
+                <NavLink
+                  to="/"
+                  end
+                  className={({ isActive }) =>
+                    `cursor-pointer transition-all ${
+                      isActive
+                        ? "text-[#EAA451]"
+                        : "text-white hover:text-[#EAA451]"
+                    }`
+                  }
+                >
+                  Home
+                </NavLink>
                 <li>Books</li>
-                <Link to="/About" className="cursor-pointer hover:text-[#EAA451] transition-all">About us</Link>
+                <NavLink
+                  to="/About"
+                  className={({ isActive }) =>
+                    `cursor-pointer transition-all ${
+                      isActive
+                        ? "text-[#EAA451]"
+                        : "text-white hover:text-[#EAA451]"
+                    }`
+                  }
+                >
+                  About us
+                </NavLink>{" "}
               </ul>
             </div>
           </nav>

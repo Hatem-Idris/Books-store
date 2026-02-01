@@ -31,7 +31,7 @@ export default function Contactsection() {
               malesuada leo.
             </p>
           </div>
-          <form className="flex flex-col items-center gap-5">
+          <form className="flex flex-col items-center gap-5 mb-6 mt-6">
             <div className="w-full flex justify-between">
               <input
                 className="border rounded-[8px] border-white/20 p-4 w-[49%] placeholder:text-gray-300 text-white"
@@ -63,8 +63,8 @@ export default function Contactsection() {
     transition
   "
             ></textarea>
-            <button className="w-5/12 lg:w-3/12 bg-[#D9176C] text-white flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px]">
-              Add to cart
+            <button className="w-6/12 lg:w-3/12 bg-[#D9176C] text-white flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px] cursor-pointer">
+              Send Message
             </button>
           </form>
         </div>

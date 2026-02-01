@@ -1,5 +1,5 @@
 import { MdOutlineBook } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 export default function Header() {
   return (
     <div className="bg-white/20 fixed w-full py-6 hidden md:flex z-10">
@@ -9,13 +9,32 @@ export default function Header() {
           <span>Bookshop</span>
           <span className="text-white/30">|</span>
           <ul className="flex gap-10 ">
-            <Link to="/" className="cursor-pointer hover:text-[#EAA451] transition-all">
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `cursor-pointer transition-all ${
+                  isActive
+                    ? "text-[#EAA451]"
+                    : "text-white hover:text-[#EAA451]"
+                }`
+              }
+            >
               Home
-            </Link>
+            </NavLink>
             <li>Books</li>
-            <Link to="/About" className="cursor-pointer hover:text-[#EAA451] transition-all">
+            <NavLink
+              to="/About"
+              className={({ isActive }) =>
+                `cursor-pointer transition-all ${
+                  isActive
+                    ? "text-[#EAA451]"
+                    : "text-white hover:text-[#EAA451]"
+                }`
+              }
+            >
               About us
-            </Link>
+            </NavLink>
           </ul>
         </nav>
         <nav className="flex gap-2.5 md:p-2 lg:p-0">

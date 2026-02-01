@@ -71,9 +71,9 @@ export default function Loginform() {
                 <Field name="rememberMe" className="w-4 h-4" type="checkbox" id="rememberme"></Field>
                 <label htmlFor="rememberme">Remember me</label>
               </div>
-              <p className="text-[16px] font-[400] font-sans text-[#D9176C]">
+              <Link to="/Forget" className="text-[16px] font-[400] font-sans text-[#D9176C]">
                 Forget password?
-              </p>
+              </Link>
             </div>
             <button
               type="submit"

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdOutlineBook } from "react-icons/md";
 import { HiMenu, HiX } from "react-icons/hi";
 
@@ -23,9 +23,32 @@ export default function Headermdsm() {
       {open && (
         <div className="md:hidden bg-white/20 backdrop-blur-xs shadow-lg mt-3 animate__animated animate__fadeIn">
           <ul className="flex flex-col gap-6 text-center py-6 font-semibold text-white">
-            <Link to="/">Home</Link>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `cursor-pointer transition-all ${
+                  isActive
+                    ? "text-[#EAA451]"
+                    : "text-white hover:text-[#EAA451]"
+                }`
+              }
+            >
+              Home
+            </NavLink>
             <li>Books</li>
-            <Link to="/About">About us</Link>
+            <NavLink
+              to="/About"
+              className={({ isActive }) =>
+                `cursor-pointer transition-all ${
+                  isActive
+                    ? "text-[#EAA451]"
+                    : "text-white hover:text-[#EAA451]"
+                }`
+              }
+            >
+              About us
+            </NavLink>
           </ul>
 
           <div className="flex flex-col gap-3 px-6 pb-6">
