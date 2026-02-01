@@ -233,7 +233,7 @@ export const BooksCarousel = () => {
               {books.map((book) => (
                 <div
                   key={book.id}
-                  className="flex-shrink-0 px-0 md:px-2"
+                  className="flex-shrink-0 px-1 md:px-2"
                   style={{ width: `${slideWidth}%` }}
                 >
                   <BookCard book={book} />
