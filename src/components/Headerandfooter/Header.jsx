@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../Store/Index";
 export default function Header() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-  const logout = useAuthStore((state) => state.isAuthenticated);
+const logout = useAuthStore((state) => state.logout);
   const navigate = useNavigate();
   return (
     <div className="bg-white/20 fixed w-full py-6 hidden md:flex z-10">
