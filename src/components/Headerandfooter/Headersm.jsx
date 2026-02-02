@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink , useNavigate } from "react-router-dom";
+import { useAuthStore } from "../Store/Index";
 import { MdOutlineBook } from "react-icons/md";
 import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Headermdsm() {
   const [open, setOpen] = useState(false);
-
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const logout = useAuthStore((state) => state.logout);
+  const navigate = useNavigate();
   return (
     <div className="fixed w-full py-4 z-50 md:hidden">
       <header className="container mx-auto flex justify-between items-center px-4">
@@ -53,15 +56,20 @@ export default function Headermdsm() {
 
           <div className="flex flex-col gap-3 px-6 pb-6">
             <Link to="/Login">
-              <button className="w-full py-3 bg-[#D9176C] text-white rounded-lg">
-                Log in
+              <button
+                onClick={isAuthenticated ? logout : () => navigate("/Login")}
+                className="py-3 px-4 w-full bg-[#D9176C] text-white font-sans rounded-lg cursor-pointer"
+              >
+                {isAuthenticated ? "logout" : "login"}
               </button>
             </Link>
-            <Link to="/Register">
-              <button className="w-full py-3 bg-white text-[#D9176C] border border-[#D9176C] rounded-lg">
-                Sign Up
-              </button>
-            </Link>
+            {!isAuthenticated && (
+              <Link to="/Register">
+                <button className="py-3 px-4 w-full bg-white text-[#D9176C] font-sans rounded-lg cursor-pointer">
+                  Sign Up
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       )}

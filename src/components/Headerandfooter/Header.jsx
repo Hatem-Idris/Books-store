@@ -50,7 +50,6 @@ const logout = useAuthStore((state) => state.logout);
               {isAuthenticated ? "logout" : "login"}
             </button>
           </Link>
-          <Link to="/Register">
             {" "}
             {!isAuthenticated && (
               <Link to="/Register">
@@ -59,7 +58,6 @@ const logout = useAuthStore((state) => state.logout);
                 </button>
               </Link>
             )}
-          </Link>
         </nav>
       </header>
     </div>
