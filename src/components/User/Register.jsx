@@ -16,7 +16,6 @@ export default function Register() {
       const res = await axios.post(url, values);
       toast.success(res.data.message);
       console.log(res.data);
-      navigate("/Login")
       return true;
     } catch (error) {
       console.log(error.data);
@@ -54,7 +53,7 @@ export default function Register() {
             }
             const success = await handleregister(values);
             if (success) {
-              navigate("/");
+              navigate("/Login");
             }
           }}
         >
