@@ -1,8 +1,10 @@
 import { BiPhoneCall } from "react-icons/bi";
 import { LuMessageSquareMore } from "react-icons/lu";
 import { FiMapPin } from "react-icons/fi";
-
+import * as Yup from "yup";
+import axios from "axios";
 import contactbg from "../../../public/d14d7655b7dfc0cacd1072cd70a68c579726248e.jpg";
+import { Field, Form, Formik, ErrorMessage } from "formik";
 export default function Contactsection() {
   const contactstyle = {
     backgroundImage: `
@@ -16,38 +18,85 @@ export default function Contactsection() {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   };
+  let domain = "https://bookstore.eraasoft.pro/api";
+  const handlogin = async (values) => {
+    let endpoint = "/contacts/store";
+    let url = domain + endpoint;
+    try {
+      const res = await axios.post(url, values);
+      // toast.success(res.data.message);
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const contactscheme = Yup.object({
+    Name: Yup.string().required(),
+    email: Yup.string().email().required(),
+    message: Yup.string().required(),
+  });
   return (
-    <div style={contactstyle} className="flex container mx-auto py-10 md:py-20 px-3 md:px-10 lg:px-20">
+    <div
+      style={contactstyle}
+      className="flex container mx-auto py-10 md:py-20 px-3 md:px-10 lg:px-20"
+    >
       <div className="w-full flex flex-col md:flex-row justify-between">
         <div className="w-full md:w-7/12 flex flex-col justify-between">
           <div className="flex flex-col">
             <h2 className="font-bold text-3xl md:text-[40px] text-white">
               Have a Questions?
             </h2>
-            <h3 className="text-3xl md:text-[40px] font-bold text-white">Get in Touch</h3>
+            <h3 className="text-3xl md:text-[40px] font-bold text-white">
+              Get in Touch
+            </h3>
             <p className="w-10/12 text-[18px] mt-2 text-white/50">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et
               ultricies est. Aliquam in justo varius, sagittis neque ut,
               malesuada leo.
             </p>
           </div>
-          <form className="flex flex-col items-center gap-5 mb-6 mt-6">
-            <div className="w-full flex justify-between">
-              <input
-                className="border rounded-[8px] border-white/20 p-4 w-[49%] placeholder:text-gray-300 text-white"
-                type="text"
-                placeholder="Name"
-              />
-              <input
-                className="border rounded-[8px] border-white/20 p-4 w-[49%] placeholder:text-gray-300 text-white"
-                type="email"
-                placeholder="Email Address"
-              />
-            </div>
-            <textarea
-              placeholder="Your Message"
-              rows={5}
-              className="
+          <Formik
+            validationSchema={contactscheme}
+            initialValues={{ Name: "", email: "", message: "" }}
+            onSubmit={(values) => {
+              handlogin(values);
+            }}
+          >
+            <Form className="flex flex-col items-center gap-5 mb-6 mt-6">
+              <div className="w-full flex gap-2">
+                <div className="flex flex-col w-6/12">
+                  <Field
+                    name="Name"
+                    className="border rounded-[8px] border-white/20 p-4 w-full placeholder:text-gray-300 text-white"
+                    type="text"
+                    placeholder="Name"
+                  />
+                  <ErrorMessage
+                    name="Name"
+                    component={"p"}
+                    className="text-red-500 font-medium py-2"
+                  />
+                </div>
+                <div className="flex flex-col w-6/12">
+                  <Field
+                    className="border rounded-[8px] border-white/20 p-4 w-full placeholder:text-gray-300 text-white"
+                    name="email"
+                    type="email"
+                    placeholder="Email Address"
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component={"p"}
+                    className="text-red-500 font-medium py-2"
+                  />
+                </div>
+              </div>
+              <Field
+                name="message"
+                as="textarea"
+                placeholder="Your Message"
+                rows={5}
+                className="
     w-full
     bg-transparent
     border
@@ -62,11 +111,20 @@ export default function Contactsection() {
     focus:border-white/40
     transition
   "
-            ></textarea>
-            <button className="w-6/12 lg:w-3/12 bg-[#D9176C] text-white flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px] cursor-pointer">
-              Send Message
-            </button>
-          </form>
+              ></Field>
+              <ErrorMessage
+                name="message"
+                component={"p"}
+                className="text-red-500 font-medium py-2"
+              />
+              <button
+                type="submit"
+                className="w-6/12 lg:w-3/12 bg-[#D9176C] text-white flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px] cursor-pointer"
+              >
+                Send Message
+              </button>
+            </Form>
+          </Formik>
         </div>
         <div className="w-full md:w-4/12 flex flex-col gap-5">
           <div className="flex items-center gap-4">

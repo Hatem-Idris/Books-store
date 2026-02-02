@@ -1,6 +1,23 @@
 import { Form, Field, Formik, ErrorMessage } from "formik";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 import * as Yup from "yup";
 export default function Forgetpassword() {
+  const navigate = useNavigate();
+  let domain = "https://bookstore.eraasoft.pro/api";
+  const emailotp = async (values) => {
+    let endpoint = "/forget-password";
+    let url = domain + endpoint;
+    try {
+      const res = await axios.post(url, values);
+      toast.success(res.data.message);
+      console.log(res.data)
+      navigate("/OTP");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const loginscheme = Yup.object({
     email: Yup.string().email().required(),
   });
@@ -15,9 +32,9 @@ export default function Forgetpassword() {
       <div className="w-full p-2 md:w-6/12 lg:w-4/12">
         <Formik
           validationSchema={loginscheme}
-          initialValues={{ email: "",}}
+          initialValues={{ email: "" }}
           onSubmit={(values) => {
-            handlogin(values);
+            emailotp(values);
           }}
         >
           <Form className="flex flex-col gap-10 font-medium text-black w-full">
