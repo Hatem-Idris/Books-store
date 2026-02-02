@@ -1,11 +1,14 @@
 import { Form, Field, Formik, ErrorMessage } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 import gimg from "../../assets/Google__G__logo.svg.png";
 import fimg from "../../assets/Facebook_Logo_(2019).png";
 import toast from "react-hot-toast";
+import { useAuthStore } from "../Store/Index";
 export default function Loginform() {
+  const navigate = useNavigate();
+  const login = useAuthStore((state)=> state.login)
   let domain = "https://bookstore.eraasoft.pro/api";
   const handlogin = async (values) => {
     let endpoint = "/login";
@@ -13,7 +16,9 @@ export default function Loginform() {
     try {
       const res = await axios.post(url, values);
       toast.success(res.data.message);
-      console.log(res.data);
+      console.log(res.data.data.token);
+      login(res.data.data.token)
+      navigate("/")
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +35,7 @@ export default function Loginform() {
       <div className="w-full p-2 md:w-6/12 lg:w-4/12">
         <Formik
           validationSchema={loginscheme}
-          initialValues={{ email: "", password: "" , rememberMe:false }}
+          initialValues={{ email: "", password: "", rememberMe: false }}
           onSubmit={(values) => {
             handlogin(values);
           }}
@@ -68,10 +73,18 @@ export default function Loginform() {
             </div>
             <div className="flex items-center justify-between">
               <div className="flex gap-2 items-center">
-                <Field name="rememberMe" className="w-4 h-4" type="checkbox" id="rememberme"></Field>
+                <Field
+                  name="rememberMe"
+                  className="w-4 h-4"
+                  type="checkbox"
+                  id="rememberme"
+                ></Field>
                 <label htmlFor="rememberme">Remember me</label>
               </div>
-              <Link to="/Forget" className="text-[16px] font-[400] font-sans text-[#D9176C]">
+              <Link
+                to="/Forget"
+                className="text-[16px] font-[400] font-sans text-[#D9176C]"
+              >
                 Forget password?
               </Link>
             </div>
