@@ -121,7 +121,7 @@ const BookCard = ({ book }) => {
   return (
     <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-4">
       <div className="relative flex-shrink-0">
-        <Link to={`/books/${book.id}`}>
+        <Link to={`/Shop/${book.id}`}>
           <img
             src={book.image || "/placeholder.svg"}
             alt={book.title}
@@ -133,7 +133,7 @@ const BookCard = ({ book }) => {
       <div className="flex-1 flex flex-col justify-between">
         <div className="flex flex-col ">
           <div className="flex justify-between">
-            <Link to={`/books/${book.id}`}>
+            <Link to={`/Shop/${book.id}`}>
               <h3 className="font-semibold text-gray-800 text-lg hover:text-pink-500 transition-colors">
                 {book.title}
               </h3>

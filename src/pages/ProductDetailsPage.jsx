@@ -263,7 +263,7 @@ const ProductDetailsPage = () => {
     }
 
     try {
-      const response = await axios.get(`${API_BASE_URL}/books/${id}`);
+      const response = await axios.get(`${API_BASE_URL}/Shop/${id}`);
       setProduct(response.data);
     } catch (error) {
       console.error('Error fetching product:', error);

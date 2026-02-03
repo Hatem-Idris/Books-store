@@ -19,7 +19,7 @@ export default function Approuter() {
         <Route path="/Newpass" element={<Newpassword />} />
         <Route path="/" element={<Homepage />} />
         <Route path="/Shop" element={<Bookspage />} />
-        <Route path="/books/:id" element={<ProductDetailsPage/>} />
+        <Route path="/Shop/:id" element={<ProductDetailsPage/>} />
         <Route path="/About" element={<Aboutpage />} />
       </Routes>
     </div>
