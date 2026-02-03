@@ -159,7 +159,7 @@ export default function Register() {
             </button>
             <div className="flex gap-1 text-[16px] font-[400] justify-center">
               <p>Already have an account?</p>
-              <Link to="/">
+              <Link to="/Login">
                 <span className="text-[#D9176C] hover:underline">Login</span>
               </Link>
             </div>

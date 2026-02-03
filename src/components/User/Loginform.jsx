@@ -83,7 +83,7 @@ export default function Loginform() {
               </div>
               <Link
                 to="/Forget"
-                className="text-[16px] font-[400] font-sans text-[#D9176C]"
+                className="text-[16px] font-[400] font-sans text-[#D9176C] hover:underline"
               >
                 Forget password?
               </Link>
