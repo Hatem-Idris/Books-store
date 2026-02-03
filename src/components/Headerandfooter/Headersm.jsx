@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink , useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../Store/Index";
 import { MdOutlineBook } from "react-icons/md";
 import { HiMenu, HiX } from "react-icons/hi";
@@ -39,7 +39,19 @@ export default function Headermdsm() {
             >
               Home
             </NavLink>
-            <li>Books</li>
+            <NavLink
+              to="/Shop"
+              end
+              className={({ isActive }) =>
+                `cursor-pointer transition-all ${
+                  isActive
+                    ? "text-[#EAA451]"
+                    : "text-white hover:text-[#EAA451]"
+                }`
+              }
+            >
+              Books
+            </NavLink>
             <NavLink
               to="/About"
               className={({ isActive }) =>

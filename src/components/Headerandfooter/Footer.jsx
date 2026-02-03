@@ -29,7 +29,19 @@ export default function Footer() {
                 >
                   Home
                 </NavLink>
-                <li>Books</li>
+                <NavLink
+                  to="/Shop"
+                  end
+                  className={({ isActive }) =>
+                    `cursor-pointer transition-all ${
+                      isActive
+                        ? "text-[#EAA451]"
+                        : "text-white hover:text-[#EAA451]"
+                    }`
+                  }
+                >
+                  Books
+                </NavLink>
                 <NavLink
                   to="/About"
                   className={({ isActive }) =>

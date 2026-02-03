@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../Store/Index";
 export default function Header() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
-const logout = useAuthStore((state) => state.logout);
+  const logout = useAuthStore((state) => state.logout);
   const navigate = useNavigate();
   return (
     <div className="bg-white/20 fixed w-full py-6 hidden md:flex z-10">
@@ -26,7 +26,19 @@ const logout = useAuthStore((state) => state.logout);
             >
               Home
             </NavLink>
-            <li>Books</li>
+            <NavLink
+              to="/Shop"
+              end
+              className={({ isActive }) =>
+                `cursor-pointer transition-all ${
+                  isActive
+                    ? "text-[#EAA451]"
+                    : "text-white hover:text-[#EAA451]"
+                }`
+              }
+            >
+              Books
+            </NavLink>
             <NavLink
               to="/About"
               className={({ isActive }) =>
@@ -49,15 +61,14 @@ const logout = useAuthStore((state) => state.logout);
             >
               {isAuthenticated ? "logout" : "login"}
             </button>
-          </Link>
-            {" "}
-            {!isAuthenticated && (
-              <Link to="/Register">
-                <button className="py-3 px-4 bg-white text-[#D9176C] font-sans rounded-lg cursor-pointer">
-                  Sign Up
-                </button>
-              </Link>
-            )}
+          </Link>{" "}
+          {!isAuthenticated && (
+            <Link to="/Register">
+              <button className="py-3 px-4 bg-white text-[#D9176C] font-sans rounded-lg cursor-pointer">
+                Sign Up
+              </button>
+            </Link>
+          )}
         </nav>
       </header>
     </div>
