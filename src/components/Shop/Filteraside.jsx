@@ -34,13 +34,11 @@ const FilterSidebar = ({ filters, setFilters }) => {
 
   return (
     <div className="w-full md:w-3/12 border-r border-r-black/10 p-2">
-      {/* Filter Header */}
       <div className="flex items-center gap-2 mb-6 mt-14">
         <FiFilter className="text-gray-700 text-xl" />
         <span className="font-semibold text-gray-800 text-lg">Filter</span>
       </div>
 
-      {/* Categories Section */}
       <div className="mb-6 bg-white p-3 rounded-lg">
         <div className="flex items-center justify-between mb-4">
           <span className="font-medium text-gray-700">Categories</span>
@@ -74,7 +72,6 @@ const FilterSidebar = ({ filters, setFilters }) => {
         )}
       </div>
 
-      {/* Publisher Accordion */}
       <div className="border-t bg-white p-3 rounded-lg border-gray-100 py-4">
         <button
           onClick={() => setPublisherOpen(!publisherOpen)}
@@ -102,7 +99,6 @@ const FilterSidebar = ({ filters, setFilters }) => {
         )}
       </div>
 
-      {/* Year Accordion */}
       <div className="border-t bg-white p-3 rounded-lg border-gray-100 py-4 mt-6">
         <button
           onClick={() => setYearOpen(!yearOpen)}

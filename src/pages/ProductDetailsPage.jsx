@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 
 import { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom'; // Uncomment in your Vite project
 import axios from 'axios';
 import { FaStar, FaStarHalfAlt, FaRegStar, FaShoppingCart, FaRegHeart, FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -13,13 +12,10 @@ import { CiCircleCheck } from "react-icons/ci";
 
 import Flashsalecards from "../components/Home/Flashsalecards";
 
-// API Base URL - Change this to your actual API
 const API_BASE_URL = 'https://your-api.com/api';
 
-// Set to true when you have a real API
 const USE_API = false;
 
-// Star Rating Component
 const StarRating = ({ rating }) => {
   const stars = [];
   const fullStars = Math.floor(rating);
@@ -39,11 +35,9 @@ const StarRating = ({ rating }) => {
   return <div className="flex items-center gap-0.5">{stars}</div>;
 };
 
-// Product Gallery Component
 const ProductGallery = ({ images, selectedImage, setSelectedImage }) => {
   return (
     <div className="flex flex-col gap-4 md:items-center">
-      {/* Main Image */}
       <div className="w-full h-full max-w-xs">
         <img
           src={images[selectedImage] || "/placeholder.svg"}
@@ -51,7 +45,6 @@ const ProductGallery = ({ images, selectedImage, setSelectedImage }) => {
           className="w-full h-90 object-contain rounded-lg"
         />
       </div>
-      {/* Thumbnail Images */}
       <div className="flex gap-2">
         {images.map((image, index) => (
           <button
@@ -69,11 +62,9 @@ const ProductGallery = ({ images, selectedImage, setSelectedImage }) => {
   );
 };
 
-// Product Info Component
 const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
   return (
     <div className="flex-1">
-      {/* Title and Social Share */}
       <div className="flex flex-col md:flex-row items-start justify-between">
         <h1 className="text-2xl font-bold text-gray-800">{product.title}</h1>
         <div className="flex items-center gap-2">
@@ -85,10 +76,8 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
         </div>
       </div>
 
-      {/* Description */}
       <p className="text-gray-500 text-sm mt-3 leading-relaxed">{product.description}</p>
 
-      {/* Book Meta Info */}
       <div className="flex flex-col md:flex-row md:items-center gap-6 mt-4 text-sm">
         <div>
           <span className="text-gray-400">Author</span>
@@ -112,7 +101,6 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
         </div>
       </div>
 
-      {/* Rating */}
       <div className="flex items-center gap-2 mt-4">
         <StarRating rating={product.rating} />
         <span className="text-gray-400 text-sm">({product.reviewCount} Reviews)</span>
@@ -127,7 +115,6 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
         <span className="flex items-center gap-1 bg-white border border-gray-300 text-gray-500 text-xs px-3 py-1 rounded"><LiaShippingFastSolid className="w-4 h-4 text-black" /> Free Shipping Today</span>
       </div>
 
-      {/* Discount Code */}
       <div className="mt-2">
         <span className="bg-white text-[#EAA451] border border-black/20 text-xs px-3 py-1 rounded">
           Discount code: Md212
@@ -135,9 +122,7 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
       </div>
       </div>
 
-      {/* Price */}
 
-      {/* Quantity and Add to Cart */}
       <div className="flex items-center gap-3 mt-4">
         <span className="text-2xl font-bold text-gray-800">${product.price.toFixed(2)}</span>
         {product.originalPrice && (
@@ -145,7 +130,6 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
         )}
       </div>
       <div className="w-full flex flex-col md:flex-row items-center lg:justify-end gap-4 mt-6">
-        {/* Quantity Selector */}
         <div className="flex items-center">
           <button
             onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -162,7 +146,6 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
           </button>
         </div>
 
-        {/* Add to Cart Button */}
         <div className="flex gap-2">
         <button
           onClick={onAddToCart}
@@ -172,7 +155,6 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
           <FaShoppingCart />
         </button>
 
-        {/* Wishlist Button */}
         <button className="w-14 h-11 flex items-center justify-center border border-pink-500 text-pink-500 rounded-lg hover:bg-pink-50 transition-colors cursor-pointer">
           <FaRegHeart />
         </button>
@@ -182,13 +164,11 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
   );
 };
 
-// Product Tabs Component
 const ProductTabs = ({ product, activeTab, setActiveTab }) => {
   const tabs = ['Product Details', 'Customer Reviews', 'Recomended For You'];
 
   return (
     <div className="mt-10">
-      {/* Tab Headers */}
       <div className="flex items-center gap-8 border-b border-gray-200">
         {tabs.map((tab) => (
           <button
@@ -205,7 +185,6 @@ const ProductTabs = ({ product, activeTab, setActiveTab }) => {
         ))}
       </div>
 
-      {/* Tab Content */}
       <div className="py-6">
         {activeTab === 'Product Details' && (
           <div className="space-y-3">
@@ -264,8 +243,6 @@ const ProductTabs = ({ product, activeTab, setActiveTab }) => {
   );
 };
 
-// Main Product Details Page Component
-// Props: id - book ID (pass from your router, e.g., <ProductDetailsPage id={params.id} />)
 const ProductDetailsPage = () => {
   const { id } = useParams();
   
@@ -274,12 +251,9 @@ const ProductDetailsPage = () => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [activeTab, setActiveTab] = useState('Product Details');
-
-  // Fetch Product from API
   const fetchProduct = async () => {
     setLoading(true);
     
-    // Use mock data if API is not available
     if (!USE_API) {
       setTimeout(() => {
         setProduct(mockProduct);
@@ -289,12 +263,10 @@ const ProductDetailsPage = () => {
     }
 
     try {
-      // Replace with your actual API endpoint
       const response = await axios.get(`${API_BASE_URL}/books/${id}`);
       setProduct(response.data);
     } catch (error) {
       console.error('Error fetching product:', error);
-      // Mock data for development
       setProduct(mockProduct);
     } finally {
       setLoading(false);
@@ -306,7 +278,6 @@ const ProductDetailsPage = () => {
   }, [id]);
 
   const handleAddToCart = () => {
-    // Add to cart logic here
     console.log('Added to cart:', { product, quantity });
   };
 
@@ -331,19 +302,15 @@ const ProductDetailsPage = () => {
     <Shopheroimg/>
     <div className="min-h-screen bg-[#F5F5F5]">
 
-      {/* Main Content */}
       <div className="container bg-[#F5F5F5] mx-auto px-4 py-8">
         <div className="p-4">
-          {/* Product Section */}
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Product Gallery */}
             <ProductGallery
               images={product.images}
               selectedImage={selectedImage}
               setSelectedImage={setSelectedImage}
             />
 
-            {/* Product Info */}
             <ProductInfo
               product={product}
               quantity={quantity}
@@ -352,7 +319,6 @@ const ProductDetailsPage = () => {
             />
           </div>
 
-          {/* Product Tabs */}
           <ProductTabs
             product={product}
             activeTab={activeTab}
@@ -365,7 +331,6 @@ const ProductDetailsPage = () => {
   );
 };
 
-// Mock data for development - Remove when connecting to real API
 const mockProduct = {
   id: 1,
   title: 'Rich Dad And Poor Dad',

@@ -12,15 +12,12 @@ import {
   FaRegStar,
 } from "react-icons/fa";
 
-// Use this Link for v0 preview - Replace with react-router-dom Link in your Vite project
-// import { Link } from 'react-router-dom';
 const Link = ({ to, children, className }) => (
   <a href={to} className={className}>
     {children}
   </a>
 );
 
-// Search Bar Component
 const SearchBar = ({ searchQuery, setSearchQuery, onSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -65,7 +62,6 @@ const SearchBar = ({ searchQuery, setSearchQuery, onSearch }) => {
   );
 };
 
-// Category Tags Component
 const CategoryTags = ({ selectedTag, setSelectedTag }) => {
   const tags = [
     "Business",
@@ -98,7 +94,6 @@ const CategoryTags = ({ selectedTag, setSelectedTag }) => {
   );
 };
 
-// Star Rating Component
 const StarRating = ({ rating }) => {
   const stars = [];
   const fullStars = Math.floor(rating);
@@ -122,11 +117,9 @@ const StarRating = ({ rating }) => {
   return <div className="flex items-center gap-0.5">{stars}</div>;
 };
 
-// Book Card Component
 const BookCard = ({ book }) => {
   return (
     <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-4">
-      {/* Book Image */}
       <div className="relative flex-shrink-0">
         <Link to={`/books/${book.id}`}>
           <img
@@ -137,9 +130,7 @@ const BookCard = ({ book }) => {
         </Link>
       </div>
 
-      {/* Book Details */}
       <div className="flex-1 flex flex-col justify-between">
-        {/* Discount Badge */}
         <div className="flex flex-col ">
           <div className="flex justify-between">
             <Link to={`/books/${book.id}`}>
@@ -200,13 +191,11 @@ const BookCard = ({ book }) => {
         </div>
       </div>
 
-      {/* Price and Actions */}
       <div className="flex flex-col justify-end"></div>
     </div>
   );
 };
 
-// Pagination Component
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const pages = [];
   for (let i = 1; i <= Math.min(totalPages, 3); i++) {
@@ -260,7 +249,6 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   );
 };
 
-// Main BooksList Component
 const BooksList = ({ books, loading, pagination, onPageChange, onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState("Business");
@@ -268,7 +256,6 @@ const BooksList = ({ books, loading, pagination, onPageChange, onSearch }) => {
 
   return (
     <div className="flex-1">
-      {/* Search and Sort */}
       <div className="flex flex-col md:flex-row items-center gap-4 mb-4 mt-14">
         <div className="flex-1 w-full">
           <SearchBar
@@ -292,10 +279,8 @@ const BooksList = ({ books, loading, pagination, onPageChange, onSearch }) => {
         </div>
       </div>
 
-      {/* Category Tags */}
       <CategoryTags selectedTag={selectedTag} setSelectedTag={setSelectedTag} />
 
-      {/* Books List */}
       <div className="space-y-4 mt-6">
         {loading ? (
           <div className="flex items-center justify-center py-20">
@@ -308,7 +293,6 @@ const BooksList = ({ books, loading, pagination, onPageChange, onSearch }) => {
         )}
       </div>
 
-      {/* Pagination */}
       {books.length > 0 && (
         <Pagination
           currentPage={pagination.currentPage}

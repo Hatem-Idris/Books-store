@@ -6,10 +6,8 @@ import FilterSidebar from '../components/Shop/Filteraside';
 import BooksList from '../components/Shop/Products';
 import Shopheroimg from '../components/Shop/Shopheroimg';
 
-// API Base URL - Change this to your actual API
 const API_BASE_URL = 'https://your-api.com/api';
 
-// Set to true when you have a real API
 const USE_API = false;
 
 const BooksPage = () => {
@@ -26,11 +24,9 @@ const BooksPage = () => {
     totalItems: 0,
   });
 
-  // Fetch Books from API
   const fetchBooks = async (page = 1, searchQuery = '') => {
     setLoading(true);
     
-    // Use mock data if API is not available
     if (!USE_API) {
       setTimeout(() => {
         setBooks(mockBooks);
@@ -45,7 +41,6 @@ const BooksPage = () => {
     }
 
     try {
-      // Replace with your actual API endpoint
       const response = await axios.get(`https://bookstore.eraasoft.pro/api/book`, {
         params: {
           page,
@@ -57,7 +52,6 @@ const BooksPage = () => {
         },
       });
 
-      // Adjust based on your API response structure
       setBooks(response.data.books || response.data.data || []);
       setPagination({
         currentPage: response.data.currentPage || page,
@@ -66,7 +60,6 @@ const BooksPage = () => {
       });
     } catch (error) {
       console.error('Error fetching books:', error);
-      // Mock data for development
       setBooks(mockBooks);
     } finally {
       setLoading(false);
@@ -92,13 +85,11 @@ const BooksPage = () => {
       <Shopheroimg/>
     <div className="min-h-screen bg-gray-50">
 
-      {/* Main Content */}
       <div className="container mx-auto px-2 md:px-4">
         <div className="flex flex-col md:flex-row gap-6">
           {/* Filter Sidebar */}
           <FilterSidebar filters={filters} setFilters={setFilters} />
 
-          {/* Books List */}
           <BooksList
             books={books}
             loading={loading}
@@ -113,7 +104,6 @@ const BooksPage = () => {
   );
 };
 
-// Mock data for development - Remove when connecting to real API
 const mockBooks = [
   {
     id: 1,
