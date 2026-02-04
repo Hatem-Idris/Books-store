@@ -137,7 +137,7 @@ const ProductInfo = ({ product, quantity, setQuantity, onAddToCart }) => {
           >
             <FiMinus className="cursor-pointer" />
           </button>
-          <span className="w-12 text-center font-medium">{quantity}</span>
+          <span className="w-12 text-center text-black font-medium">{quantity}</span>
           <button
             onClick={() => setQuantity(quantity + 1)}
             className="w-6 h-6 flex items-center justify-center border border-[#D9176C] rounded-full text-[#D9176C]"
