@@ -82,6 +82,13 @@ export default function Headermdsm() {
                 </button>
               </Link>
             )}
+            {isAuthenticated && (
+              <Link to="/Updatingform">
+                <button className="py-3 px-4 w-full bg-white text-[#D9176C] font-sans rounded-lg cursor-pointer">
+                  Update
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       )}

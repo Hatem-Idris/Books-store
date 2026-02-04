@@ -8,6 +8,7 @@ import Otpcode from "../pages/Otpcode";
 import Newpassword from "../pages/Newpassword";
 import Bookspage from "../pages/Bookspage";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
+import Updatingform from "../pages/Updatingform";
 export default function Approuter() {
   return (
     <div>
@@ -17,6 +18,7 @@ export default function Approuter() {
         <Route path="/Forget" element={<Forgetpassword />} />
         <Route path="/OTP" element={<Otpcode />} />
         <Route path="/Newpass" element={<Newpassword />} />
+        <Route path="/Updatingform" element={<Updatingform/>} />
         <Route path="/" element={<Homepage />} />
         <Route path="/Shop" element={<Bookspage />} />
         <Route path="/Shop/:id" element={<ProductDetailsPage/>} />

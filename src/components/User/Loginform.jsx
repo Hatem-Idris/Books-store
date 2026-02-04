@@ -16,7 +16,7 @@ export default function Loginform() {
     try {
       const res = await axios.post(url, values);
       toast.success(res.data.message);
-      console.log(res.data.data.token);
+      console.log(res.data.data);
       login(res.data.data.token, values.rememberMe)
       navigate("/")
     } catch (error) {

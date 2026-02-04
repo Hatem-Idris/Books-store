@@ -69,6 +69,13 @@ export default function Header() {
               </button>
             </Link>
           )}
+          {isAuthenticated && (
+            <Link to="/Updatingform">
+              <button className="py-3 px-4 bg-white text-[#D9176C] font-sans rounded-lg cursor-pointer">
+                Update
+              </button>
+            </Link>
+          )}
         </nav>
       </header>
     </div>
