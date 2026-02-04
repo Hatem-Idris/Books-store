@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import { FiFilter, FiChevronDown, FiChevronUp } from 'react-icons/fi';
 
