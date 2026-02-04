@@ -1,9 +1,8 @@
-"use client";
-
 import { useState } from "react";
 import { TiMicrophoneOutline } from "react-icons/ti";
 import { IoSearch } from "react-icons/io5";
 import { FiSearch, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { Link as RouterLink } from "react-router-dom";
 import {
   FaShoppingCart,
   FaRegHeart,
@@ -11,12 +10,13 @@ import {
   FaStarHalfAlt,
   FaRegStar,
 } from "react-icons/fa";
-
-const Link = ({ to, children, className }) => (
-  <a href={to} className={className}>
-    {children}
-  </a>
-);
+const Link = ({ to, children, className, ...props }) => {
+  return (
+    <RouterLink to={to} className={className} {...props}>
+      {children}
+    </RouterLink>
+  );
+};
 
 const SearchBar = ({ searchQuery, setSearchQuery, onSearch }) => {
   const handleSubmit = (e) => {
@@ -121,23 +121,23 @@ const BookCard = ({ book }) => {
   return (
     <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-4">
       <div className="relative flex-shrink-0">
-        <Link to={`/Shop/${book.id}`}>
+        <AppLink  to={`/Shop/${book.id}`}>
           <img
             src={book.image || "/placeholder.svg"}
             alt={book.title}
             className="w-full max-h-60 object-contain"
           />
-        </Link>
+        </AppLink>
       </div>
 
       <div className="flex-1 flex flex-col justify-between">
         <div className="flex flex-col ">
           <div className="flex justify-between">
-            <Link to={`/Shop/${book.id}`}>
+            <AppLink  to={`/Shop/${book.id}`}>
               <h3 className="font-semibold text-gray-800 text-lg hover:text-pink-500 transition-colors">
                 {book.title}
               </h3>
-            </Link>
+            </AppLink>
             <span className="bg-white border border-[#EBC305] text-[#EBC305] text-xs text-center px-3 py-2 rounded">
               25% Discount code: Md212
             </span>
