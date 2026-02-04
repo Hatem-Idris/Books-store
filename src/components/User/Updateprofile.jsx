@@ -22,6 +22,9 @@ export default function ProfileEdit() {
       })
       .then((res) => {
         setInitialData(res.data.data);
+              if (res.data.data.image) {
+        setPreview(res.data.data.image);
+      }
       });
   }, []);
   const token = useAuthStore((state) => state.token);
@@ -49,7 +52,7 @@ export default function ProfileEdit() {
       });
 
       toast.success("Profile updated successfully");
-      console.log(res.data.data);
+      console.log(res.data);
     } catch (error) {
       console.log(error.response?.data.errors);
     }
