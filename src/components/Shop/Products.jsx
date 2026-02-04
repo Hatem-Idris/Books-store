@@ -10,7 +10,7 @@ import {
   FaStarHalfAlt,
   FaRegStar,
 } from "react-icons/fa";
-const Link = ({ to, children, className, ...props }) => {
+const AppLink  = ({ to, children, className, ...props }) => {
   return (
     <RouterLink to={to} className={className} {...props}>
       {children}
