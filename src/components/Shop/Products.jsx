@@ -132,9 +132,9 @@ const BookCard = ({ book }) => {
 
       <div className="flex-1 flex flex-col justify-between">
         <div className="flex flex-col ">
-          <div className="flex justify-between">
+          <div className="flex flex-col lg:flex-row justify-between">
             <AppLink  to={`/Shop/${book.id}`}>
-              <h3 className="font-semibold text-gray-800 text-lg hover:text-pink-500 transition-colors">
+              <h3 className="font-semibold text-gray-800 text-xl lg:text-lg mb-2.5 lg:mb-0 hover:text-pink-500 transition-colors">
                 {book.title}
               </h3>
             </AppLink>
@@ -175,11 +175,11 @@ const BookCard = ({ book }) => {
           </div>
           </div>
           <div className="flex flex-col">
-            <span className="text-xl text-start md:text-end mt-3 font-bold text-gray-800">
+            <span className="text-xl text-start md:text-end mt-3 mb-3 md:mb-1 font-bold text-gray-800">
               ${book.price.toFixed(2)}
             </span>
             <div className="flex items-center gap-2">
-              <button className="flex items-center w-full justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white py-2 px-1 md:p-2 lg:px-4 lg:py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer">
+              <button className="flex items-center w-full justify-center gap-2 bg-pink-500 hover:bg-pink-600 text-white py-3 px-1 md:p-2 lg:px-4 lg:py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer">
                 <span className="text-[11px] md:text-sm">Add To Cart</span>
                 <FaShoppingCart />
               </button>
