@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Form, Field, Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import toast from "react-hot-toast";
 import { BsPen } from "react-icons/bs";
 import { useAuthStore } from "../Store/Index";
 
@@ -51,7 +52,7 @@ export default function ProfileEdit() {
         },
       });
 
-      toast.success("Profile updated successfully");
+      toast.success(res.data.message);
       console.log(res.data);
     } catch (error) {
       console.log(error.response?.data.errors);
