@@ -35,7 +35,7 @@ export default function Header() {
           <MdOutlineBook className="text-2xl" />
           <span>Bookshop</span>
           <span className="text-white/30">|</span>
-          <ul className="flex gap-10 ">
+          <ul className="flex md:gap-4 lg:gap-10 ">
             <NavLink
               to="/"
               end
