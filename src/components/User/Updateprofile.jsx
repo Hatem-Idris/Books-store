@@ -104,17 +104,26 @@ export default function ProfileEdit() {
       <div>
         <div className="relative">
           <div className="avatar">
-            <div className="w-32 md:w-44 md:h-44 rounded-full ring-offset-2">
-              <img src={preview} alt="profile" />
-            </div>
+            <label className="w-40 h-40 md:w-44 md:h-44 rounded-full ring-offset-2 block cursor-pointer overflow-hidden">
+              <img
+                src={preview}
+                alt="profile"
+                className="w-full h-full object-cover"
+              />
+              <input
+                type="file"
+                accept="image/*"
+                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                onChange={handleImageChange}
+              />
+            </label>
           </div>
-
           <label className="w-8 h-8 flex justify-center items-center text-white bg-[#D9176C] btn-sm absolute bottom-0 right-0 md:bottom-5 md:right-1 rounded-full cursor-pointer">
-            <BsPen />
+            <BsPen className="cursor-pointer" />
             <input
               type="file"
               accept="image/*"
-              hidden
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
               onChange={handleImageChange}
             />
           </label>
