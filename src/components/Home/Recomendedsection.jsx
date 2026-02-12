@@ -74,7 +74,7 @@ export default function Recomendedsection() {
                     </span>
                   </div>
                 </div>
-                <h2 className="text-2xl font-[600] text-black">$30.00</h2>
+                <h2 className="text-2xl font-[600] text-black">${el.price}</h2>
               </div>
               <div className="flex gap-2 md:gap-0 justify-between">
                 <button className="w-10/12 bg-[#D9176C] text-white hover:bg-pink-700 flex justify-center items-center rounded-[8px] py-3 px-4 font-[600] text-[16px] cursor-pointer transition-colors">
