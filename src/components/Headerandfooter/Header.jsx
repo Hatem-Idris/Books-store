@@ -12,7 +12,6 @@ export default function Header() {
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
   const token = useAuthStore((state) => state.token);
   const logout = useAuthStore((state) => state.logout);
-  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   useEffect(() => {
     if (isAuthenticated && token) {

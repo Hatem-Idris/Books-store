@@ -104,7 +104,7 @@ export default function ProfileEdit() {
       <div>
         <div className="relative">
           <div className="avatar">
-            <label className="w-40 h-40 md:w-44 md:h-44 rounded-full ring-offset-2 block cursor-pointer overflow-hidden">
+            <label className="w-40 h-40 md:w-44 md:h-44 rounded-full ring-offset-2 border border-[#D9176C] block cursor-pointer overflow-hidden">
               <img
                 src={preview}
                 alt="profile"
