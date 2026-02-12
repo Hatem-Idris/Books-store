@@ -28,7 +28,7 @@ export default function Header() {
     }
   }, [isAuthenticated, token]);
   return (
-    <div className="bg-white/20 fixed w-full py-6 hidden md:flex z-10">
+    <div className="bg-white/20 fixed w-full py-6 px-4 hidden md:flex z-10">
       <header className="w-full flex container mx-auto justify-between">
         <nav className="flex items-center gap-6 text-white font-[600]">
           <MdOutlineBook className="text-2xl" />
