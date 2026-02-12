@@ -50,6 +50,7 @@ export default function Wishlist() {
       toast.success("Item removed from wishlist");
     } catch (error) {
       toast.error("Failed to remove item");
+      console.log(error.response?.data.errors)
     }
   };
 
