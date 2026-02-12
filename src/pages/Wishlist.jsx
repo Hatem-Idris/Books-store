@@ -70,7 +70,7 @@ export default function Wishlist() {
 
   const totalItems = wishlistItems.length;
   const totalPrice = wishlistItems.reduce(
-    (acc, item) => acc + (item.product?.price || 0) * (item.quantity || 1),
+    (acc, item) => acc + (item.book?.price || 0) * (item.quantity || 1),
     0,
   );
 
@@ -141,31 +141,31 @@ export default function Wishlist() {
               >
                 <div className="w-5/12 flex gap-4">
                   <img
-                    src={item.product?.image}
-                    alt={item.product?.title}
+                    src={item.book?.image}
+                    alt={item.book?.title}
                     className="w-28 h-36 object-cover rounded shadow-md flex-shrink-0"
                   />
                   <div className="flex flex-col justify-center gap-1">
                     <h3 className="font-bold text-gray-800 text-sm">
-                      {item.product?.title}
+                      {item.book?.title}
                     </h3>
                     <p className="text-xs text-gray-500">
                       Author:{" "}
                       <span className="text-gray-700">
-                        {item.product?.author}
+                        {item.book?.author}
                       </span>
                     </p>
                     <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed">
-                      {item.product?.description}
+                      {item.book?.description}
                     </p>
-                    {item.product?.free_shipping && (
+                    {item.book?.free_shipping && (
                       <span className="flex items-center gap-1 text-xs text-gray-500 border border-gray-300 rounded-full px-2 py-0.5 w-fit mt-1">
                         <FiTruck className="text-gray-400" size={12} />
                         Free Shipping
                       </span>
                     )}
                     <p className="text-xs text-gray-400 mt-1">
-                      ASIN : {item.product?.asin}
+                      ASIN : {item.book?.asin}
                     </p>
                   </div>
                 </div>
@@ -184,19 +184,19 @@ export default function Wishlist() {
 
                 <div className="w-2/12 text-center">
                   <span className="text-lg font-semibold text-gray-800">
-                    ${item.product?.price}
+                    ${item.book?.price}
                   </span>
                 </div>
 
                 <div className="w-2/12 text-center">
                   <span className="text-lg font-semibold text-gray-800">
-                    ${(item.product?.price || 0) * (item.quantity || 1)}
+                    ${(item.book?.price || 0) * (item.quantity || 1)}
                   </span>
                 </div>
 
                 <div className="w-1/12 flex justify-center">
                   <button
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => removeItem(item.book.id)}
                     className="text-[#D9176C] hover:opacity-70 transition-opacity cursor-pointer"
                   >
                     <FaRegTrashAlt size={18} />
