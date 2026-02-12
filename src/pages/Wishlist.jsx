@@ -100,7 +100,6 @@ export default function Wishlist() {
       <Shopheroimg/>
     <div className="w-full px-4 py-6 h-dvh">
       <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
-        {/* Table Header */}
         <div className="flex items-center bg-gray-50 border-b border-gray-200 py-4 px-6">
           <div className="w-3/12 md:w-5/12">
             <span className="text-sm font-semibold text-gray-700">Item</span>
@@ -120,7 +119,6 @@ export default function Wishlist() {
           </div>
         </div>
 
-        {/* Wishlist Items */}
         <AnimatePresence>
           {wishlistItems.length === 0 ? (
             <div className="py-16 text-center text-gray-400">
@@ -140,7 +138,6 @@ export default function Wishlist() {
                     : ""
                 }`}
               >
-                {/* Item Info */}
                 <div className="w-5/12 flex gap-4">
                   <img
                     src={item.product?.image}
@@ -172,7 +169,6 @@ export default function Wishlist() {
                   </div>
                 </div>
 
-                {/* Quantity */}
                 <div className="w-2/12 flex items-center justify-center gap-2">
                   <span className="text-[#D9176C]">
                     <FiMinus size={18} />
@@ -185,21 +181,18 @@ export default function Wishlist() {
                   </span>
                 </div>
 
-                {/* Price */}
                 <div className="w-2/12 text-center">
                   <span className="text-lg font-semibold text-gray-800">
                     ${item.product?.price}
                   </span>
                 </div>
 
-                {/* Total Price */}
                 <div className="w-2/12 text-center">
                   <span className="text-lg font-semibold text-gray-800">
                     ${(item.product?.price || 0) * (item.quantity || 1)}
                   </span>
                 </div>
 
-                {/* Delete */}
                 <div className="w-1/12 flex justify-center">
                   <button
                     onClick={() => removeItem(item.id)}
@@ -214,7 +207,6 @@ export default function Wishlist() {
         </AnimatePresence>
       </div>
 
-      {/* Bottom Actions */}
       {wishlistItems.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}

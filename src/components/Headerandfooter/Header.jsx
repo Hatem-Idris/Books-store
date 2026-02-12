@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
+import { FaAngleDown } from "react-icons/fa6";
 
 const domain = "https://bookstore.eraasoft.pro/api";
 export default function Header() {
@@ -122,50 +123,41 @@ export default function Header() {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar w-12 h-12"
+                  className="flex items-center gap-3 cursor-pointer hover:bg-white/20 transition-colors rounded-[8px] p-0.5"
                 >
-                  <div className="w-12 rounded-full">
+                  <div className="w-12 h-12 rounded-full overflow-hidden">
                     <img
-                      alt="Tailwind CSS Navbar component"
                       src={
                         user?.image ||
                         "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
                       }
+                      alt="profile"
+                      className="w-full h-full object-cover"
                     />
                   </div>
+                  <div className="flex flex-col text-left">
+                    <h3 className="text-[16px] font-semibold text-white leading-tight">
+                      {user?.first_name} {user?.last_name}
+                    </h3>
+                    <h4 className="font-light text-[14px] text-white/50 leading-tight">
+                      {user?.email}
+                    </h4>
+                  </div>
+                  <FaAngleDown className="text-white" />
                 </div>
                 <ul
-                  tabIndex="-1"
-                  className="flex flex-col items-center menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 p-2 shadow"
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 p-3 shadow w-52"
                 >
                   <li>
-                    {isAuthenticated && (
-                      <Link to="/Updatingform" className="bg-transparent">
-                        <button className="py-3 px-4 bg-white text-[#D9176C] border border-[#D9176C] hover:bg-[#D9176C] transition-colors hover:text-white  font-sans rounded-lg cursor-pointer">
-                          Update
-                        </button>
-                      </Link>
-                    )}
+                    <Link to="/Updatingform">Update</Link>
                   </li>
                   <li>
-                    {isAuthenticated && (
-                      <button
-                        onClick={logout}
-                        className="py-3 px-4 bg-red-600 hover:bg-red-800 text-white border border-[#D9176C] font-sans rounded-lg cursor-pointer"
-                      >
-                        Logout
-                      </button>
-                    )}
+                    <button onClick={logout} className="text-red-600">
+                      Logout
+                    </button>
                   </li>
                 </ul>
-              </div>
-              <div className="flex flex-col">
-                <h3 className="text-[16px] font-semibold text-white">
-                  {user?.first_name} {user?.last_name}
-                </h3>
-                <h4 className="font-light text-[14px] text-white/50">
-                  {user?.email}
-                </h4>
               </div>
             </div>
           )}

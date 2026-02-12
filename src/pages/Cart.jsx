@@ -95,7 +95,6 @@ export default function Cart() {
       toast.error("Please enter a promo code");
       return;
     }
-    // TODO: Call promo code API endpoint
     toast.success("Promo code applied");
   };
 
@@ -112,7 +111,6 @@ export default function Cart() {
     <Shopheroimg/>
     <div className="w-full px-4 py-6 h-dvh">
       <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
-        {/* Table Header */}
         <div className="flex items-center bg-gray-50 border-b border-gray-200 py-4 px-6">
           <div className="w-3/12 md:w-5/12">
             <span className="text-sm font-semibold text-gray-700">Item</span>
@@ -131,8 +129,6 @@ export default function Cart() {
             </span>
           </div>
         </div>
-
-        {/* Cart Items */}
         <AnimatePresence>
           {cartItems.length === 0 ? (
             <div className="py-16 text-center text-gray-400">
@@ -152,7 +148,6 @@ export default function Cart() {
                     : ""
                 }`}
               >
-                {/* Item Info */}
                 <div className="w-5/12 flex gap-4">
                   <img
                     src={item.product?.image}
@@ -184,7 +179,6 @@ export default function Cart() {
                   </div>
                 </div>
 
-                {/* Quantity */}
                 <div className="w-2/12 flex items-center justify-center gap-2">
                   <button
                     onClick={() =>
@@ -207,21 +201,18 @@ export default function Cart() {
                   </button>
                 </div>
 
-                {/* Price */}
                 <div className="w-2/12 text-center">
                   <span className="text-lg font-semibold text-gray-800">
                     ${item.product?.price}
                   </span>
                 </div>
 
-                {/* Total Price */}
                 <div className="w-2/12 text-center">
                   <span className="text-lg font-semibold text-gray-800">
                     ${(item.product?.price || 0) * (item.quantity || 1)}
                   </span>
                 </div>
 
-                {/* Delete */}
                 <div className="w-1/12 flex justify-center">
                   <button
                     onClick={() => removeItem(item.id)}
@@ -236,7 +227,6 @@ export default function Cart() {
         </AnimatePresence>
       </div>
 
-      {/* Payment Summary */}
       {cartItems.length > 0 && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -245,7 +235,6 @@ export default function Cart() {
           className="mt-8 bg-white rounded-lg shadow-sm border border-gray-100 p-8"
         >
           <div className="flex gap-8">
-            {/* Left - Summary Info */}
             <div className="w-6/12">
               <h2 className="text-xl font-bold text-gray-800 mb-2">
                 Payment Summary
@@ -281,7 +270,6 @@ export default function Cart() {
               </div>
             </div>
 
-            {/* Right - Price Breakdown */}
             <div className="w-6/12 flex flex-col justify-center pl-8">
               <div className="flex items-center justify-between py-2">
                 <span className="text-sm text-gray-500">Subtotal</span>
@@ -314,7 +302,6 @@ export default function Cart() {
             </div>
           </div>
 
-          {/* Buttons */}
           <div className="mt-8 flex flex-col gap-3">
             <button
               onClick={handleCheckout}

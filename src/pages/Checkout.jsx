@@ -114,7 +114,6 @@ export default function Checkout() {
       toast.error("Please enter a promo code");
       return;
     }
-    // TODO: Call promo code API endpoint
     toast.success("Promo code applied");
   };
 
@@ -179,9 +178,7 @@ export default function Checkout() {
     <div className="w-full px-4 py-6">
       <form onSubmit={formik.handleSubmit}>
         <div className="flex flex-col md:flex-row gap-6">
-          {/* Left Column - Forms */}
           <div className="w-full md:w-7/12 flex flex-col gap-6">
-            {/* Shipping Information */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -193,7 +190,6 @@ export default function Checkout() {
               </h2>
 
               <div className="flex flex-col gap-4">
-                {/* Name & Phone */}
                 <div className="flex gap-4">
                   <div className="w-6/12">
                     <label className="text-xs text-gray-400 mb-1 block">
@@ -243,7 +239,6 @@ export default function Checkout() {
                   </div>
                 </div>
 
-                {/* Email & City */}
                 <div className="flex gap-4">
                   <div className="w-6/12">
                     <label className="text-xs text-gray-400 mb-1 block">
@@ -293,7 +288,6 @@ export default function Checkout() {
                   </div>
                 </div>
 
-                {/* State & Zip */}
                 <div className="flex gap-4">
                   <div className="w-6/12">
                     <label className="text-xs text-gray-400 mb-1 block">
@@ -343,7 +337,6 @@ export default function Checkout() {
                   </div>
                 </div>
 
-                {/* Address */}
                 <div>
                   <label className="text-xs text-gray-400 mb-1 block">
                     Address
@@ -370,7 +363,6 @@ export default function Checkout() {
               </div>
             </motion.div>
 
-            {/* Payment Method */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -435,7 +427,6 @@ export default function Checkout() {
               </div>
             </motion.div>
 
-            {/* Note */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -460,7 +451,6 @@ export default function Checkout() {
             </motion.div>
           </div>
 
-          {/* Right Column - Order Summary */}
           <div className="w-full md:w-5/12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -472,7 +462,6 @@ export default function Checkout() {
                 Order summary
               </h2>
 
-              {/* Order Items */}
               <div className="flex flex-col gap-5 mb-6">
                 {orderItems.map((item, index) => (
                   <div
@@ -545,7 +534,6 @@ export default function Checkout() {
                 ))}
               </div>
 
-              {/* Promo Code */}
               <div className="mb-5">
                 <p className="text-xs text-gray-400 mb-2">
                   Have a discount code?
@@ -573,7 +561,6 @@ export default function Checkout() {
                 </div>
               </div>
 
-              {/* Price Breakdown */}
               <div className="flex flex-col gap-2 mb-4">
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">Subtotal</span>
@@ -603,7 +590,6 @@ export default function Checkout() {
                 </div>
               </div>
 
-              {/* Confirm Button */}
               <button
                 type="submit"
                 className="w-full bg-[#D9176C] text-white py-3 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity cursor-pointer"
