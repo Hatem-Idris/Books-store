@@ -67,7 +67,7 @@ export default function Recomendedsection() {
                     <IoMdStar className="text-black/20 text-xl" />
                     <span className="text-black">(180 Review)</span>
                   </div>
-                  <div className="flex gap-1">
+                  <div className="flex items-center gap-1">
                     <p className="text-black">Rate:</p>
                     <span className="font-[600] textarea-md text-black">
                       4.2
