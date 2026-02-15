@@ -34,8 +34,8 @@ export default function Contactsection() {
   const contactscheme = Yup.object({
     name: Yup.string().required(),
     email: Yup.string().email().required(),
-    subject: Yup.string().required(),
-    message: Yup.string().required(),
+    subject: Yup.string().required().min(5, "Subject must be at least 5 characters"),
+    message: Yup.string().required().min(10, "Message must be at least 10 characters"),
   });
   return (
     <div
