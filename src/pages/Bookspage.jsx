@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import FilterSidebar from '../components/Shop/Filteraside';
-import BooksList from '../components/Shop/Products';
-import Shopheroimg from '../components/Shop/Shopheroimg';
-
-const API_BASE_URL = 'https://your-api.com/api';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import FilterSidebar from "../components/Shop/Filteraside";
+import BooksList from "../components/Shop/Products";
+import Shopheroimg from "../components/Shop/Shopheroimg";
+import { useAuthStore } from "../components/Store/Index";
+import Authbox from "../components/Authbox";
+const API_BASE_URL = "https://your-api.com/api";
 
 const USE_API = false;
 
@@ -22,9 +23,9 @@ const BooksPage = () => {
     totalItems: 0,
   });
 
-  const fetchBooks = async (page = 1, searchQuery = '') => {
+  const fetchBooks = async (page = 1, searchQuery = "") => {
     setLoading(true);
-    
+
     if (!USE_API) {
       setTimeout(() => {
         setBooks(mockBooks);
@@ -39,16 +40,19 @@ const BooksPage = () => {
     }
 
     try {
-      const response = await axios.get(`https://bookstore.eraasoft.pro/api/book`, {
-        params: {
-          page,
-          limit: 10,
-          search: searchQuery,
-          categories: filters.categories.join(','),
-          publishers: filters.publishers.join(','),
-          years: filters.years.join(','),
+      const response = await axios.get(
+        `https://bookstore.eraasoft.pro/api/book`,
+        {
+          params: {
+            page,
+            limit: 10,
+            search: searchQuery,
+            categories: filters.categories.join(","),
+            publishers: filters.publishers.join(","),
+            years: filters.years.join(","),
+          },
         },
-      });
+      );
 
       setBooks(response.data.books || response.data.data || []);
       setPagination({
@@ -57,7 +61,7 @@ const BooksPage = () => {
         totalItems: response.data.totalItems || 0,
       });
     } catch (error) {
-      console.error('Error fetching books:', error);
+      console.error("Error fetching books:", error);
       setBooks(mockBooks);
     } finally {
       setLoading(false);
@@ -71,33 +75,35 @@ const BooksPage = () => {
   const handlePageChange = (page) => {
     setPagination((prev) => ({ ...prev, currentPage: page }));
     fetchBooks(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleSearch = (query) => {
     fetchBooks(1, query);
   };
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
 
   return (
     <div>
-      <Shopheroimg/>
-    <div className="min-h-screen bg-gray-50">
+      <Shopheroimg />
+      {!isAuthenticated && <Authbox />}
+      {isAuthenticated && (
+        <div className="min-h-screen bg-gray-50">
+          <div className="container mx-auto px-2 md:px-4">
+            <div className="flex flex-col md:flex-row gap-6">
+              <FilterSidebar filters={filters} setFilters={setFilters} />
 
-      <div className="container mx-auto px-2 md:px-4">
-        <div className="flex flex-col md:flex-row gap-6">
-          {/* Filter Sidebar */}
-          <FilterSidebar filters={filters} setFilters={setFilters} />
-
-          <BooksList
-            books={books}
-            loading={loading}
-            pagination={pagination}
-            onPageChange={handlePageChange}
-            onSearch={handleSearch}
-          />
+              <BooksList
+                books={books}
+                loading={loading}
+                pagination={pagination}
+                onPageChange={handlePageChange}
+                onSearch={handleSearch}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
     </div>
   );
 };
@@ -105,36 +111,42 @@ const BooksPage = () => {
 const mockBooks = [
   {
     id: 1,
-    title: 'Rich Dad And Poor Dad',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, sagittis neque ut, malesuada leo.',
-    image: 'https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg',
+    title: "Rich Dad And Poor Dad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, sagittis neque ut, malesuada leo.",
+    image:
+      "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg",
     rating: 4.2,
     reviewCount: 210,
-    author: 'Robert T. Kiyosaki',
+    author: "Robert T. Kiyosaki",
     year: 1997,
-    price: 40.00,
+    price: 40.0,
   },
   {
     id: 2,
-    title: 'Rich Dad And Poor Dad',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, sagittis neque ut, malesuada leo.',
-    image: 'https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg',
+    title: "Rich Dad And Poor Dad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, sagittis neque ut, malesuada leo.",
+    image:
+      "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg",
     rating: 4.2,
     reviewCount: 210,
-    author: 'Robert T. Kiyosaki',
+    author: "Robert T. Kiyosaki",
     year: 1997,
-    price: 40.00,
+    price: 40.0,
   },
   {
     id: 3,
-    title: 'Rich Dad And Poor Dad',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, sagittis neque ut, malesuada leo.',
-    image: 'https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg',
+    title: "Rich Dad And Poor Dad",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris et ultricies est. Aliquam in justo varius, sagittis neque ut, malesuada leo. Aliquam in justo varius, sagittis neque ut, malesuada leo.",
+    image:
+      "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UF1000,1000_QL80_.jpg",
     rating: 4.2,
     reviewCount: 210,
-    author: 'Robert T. Kiyosaki',
+    author: "Robert T. Kiyosaki",
     year: 1997,
-    price: 40.00,
+    price: 40.0,
   },
 ];
 
